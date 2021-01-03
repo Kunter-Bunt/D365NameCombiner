@@ -5,15 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mwo.D365NameCombiner.Plugins
+namespace mwo.D365NameCombiner.Plugins.Services
 {
     public class CombinerService
     {
         private Entity Entity { get; set; }
+        private AttributeConverterService AttributeService { get; set; }
 
         public CombinerService(Entity entity)
         {
             Entity = entity;
+            AttributeService = new AttributeConverterService();
         }
 
         public string Combine(string format, params string[] args)
@@ -22,10 +24,7 @@ namespace mwo.D365NameCombiner.Plugins
 
             foreach (var arg in args)
             {
-                if (Entity.Contains(arg))
-                    transformedArguments.Add(Entity[arg]);
-                else
-                    transformedArguments.Add(null);
+                transformedArguments.Add(AttributeService.Convert(Entity, arg));
             }
 
             return string.Format(format, transformedArguments.ToArray());

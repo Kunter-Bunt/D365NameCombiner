@@ -55,6 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorators\OptionSetValueCollectionPrintable.cs" />
+    <Compile Include="Decorators\OptionSetValuePrintable.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Services\AttributeConverterService.cs" />
     <Compile Include="Services\CombinerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

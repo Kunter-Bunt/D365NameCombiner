@@ -1,7 +1,9 @@
 ﻿using FakeXrmEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
+using mwo.D365NameCombiner.Plugins.Services;
 using System;
+using System.Linq;
 
 namespace mwo.D365NameCombiner.Plugins.Tests
 {
@@ -17,12 +19,14 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         private const string BooleanAttribute = "donotemail";
         private const bool BooleanValue = true;
         private const string EnumAttribute = "accounttype";
-        private OptionSetValue EnumValue = new OptionSetValue(1);
+        private const int ValueOne = 1;
+        private const int ValueTwo = 2;
+        private OptionSetValue EnumValue = new OptionSetValue(ValueOne);
         private const string EnumsAttribute = "accountgroups";
         private OptionSetValueCollection EnumsValue = new OptionSetValueCollection
         {
-            new OptionSetValue(1),
-            new OptionSetValue(2)
+            new OptionSetValue(ValueOne),
+            new OptionSetValue(ValueTwo)
         };
         private const string DecimalAttribute = "decimal";
         private const Decimal DecimalValue = 1.24M;
@@ -72,24 +76,42 @@ namespace mwo.D365NameCombiner.Plugins.Tests
             Service = new CombinerService(Target);
         }
 
-        [TestMethod]
-        public void Combine_StringTest()
+
+        [DataTestMethod]
+        [DataRow(StringAttribute, StringValue)]
+        [DataRow(IntAttribute, IntValue)]
+        [DataRow(EnumAttribute, ValueOne)]
+        [DataRow(EnumsAttribute, "1 2")]
+        public void Combine_SimpleFormatTest(string attr, object expected)
         {
             //Act
-            var result = Service.Combine(SimpleFormat, StringAttribute);
+            var result = Service.Combine(SimpleFormat, attr);
 
             //Assert
-            Assert.AreEqual(StringValue, result);
+            Assert.AreEqual(expected.ToString(), result);
         }
 
         [TestMethod]
-        public void Combine_IntTest()
+        public void Combine_EnumHelloTest()
         {
             //Act
-            var result = Service.Combine(SimpleFormat, IntAttribute);
+            var result = Service.Combine("{0:1=Hello}", EnumAttribute);
 
             //Assert
-            Assert.AreEqual($"{IntValue}", result);
+            Assert.AreEqual("Hello", result);
+        }
+
+        [TestMethod]
+        public void Combine_EnumsHelloTest()
+        {
+            //Arrange
+            var expected = "Hello 2";
+
+            //Act
+            var result = Service.Combine("{0:1=Hello}", EnumsAttribute);
+
+            //Assert
+            Assert.AreEqual(expected, result);
         }
     }
 }
