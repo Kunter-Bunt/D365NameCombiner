@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
 using mwo.D365NameCombiner.Plugins.Services;
 using System;
-using System.Linq;
 
 namespace mwo.D365NameCombiner.Plugins.Tests
 {
@@ -29,7 +28,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
             new OptionSetValue(ValueTwo)
         };
         private const string DecimalAttribute = "decimal";
-        private const Decimal DecimalValue = 1.24M;
+        private const decimal DecimalValue = 1.24M;
         private const string DoubleAttribute = "double";
         private const double DoubleValue = 2.48;
         private const string LookupAttribute = "maincontactid";
