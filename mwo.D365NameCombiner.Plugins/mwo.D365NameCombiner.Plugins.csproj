@@ -55,7 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorators\EntityReferencePrintable.cs" />
     <Compile Include="Decorators\OptionSetValueCollectionPrintable.cs" />
+    <Compile Include="Decorators\MoneyPrintable.cs" />
     <Compile Include="Decorators\OptionSetValuePrintable.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Services\AttributeConverterService.cs" />

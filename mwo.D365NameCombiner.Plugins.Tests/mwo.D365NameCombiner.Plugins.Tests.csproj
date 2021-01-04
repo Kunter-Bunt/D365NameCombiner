@@ -126,8 +126,10 @@
     <Compile Include="Decorators\OptionSetValueCollectionPrintableTests.cs" />
     <Compile Include="Decorators\OptionSetValuePrintableTests.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
+    <Compile Include="Services\AttributeConverterServiceTests.cs" />
     <Compile Include="Services\CombinerServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace mwo.D365NameCombiner.Plugins.Services
 {
@@ -23,9 +19,7 @@ namespace mwo.D365NameCombiner.Plugins.Services
             var transformedArguments = new List<object>();
 
             foreach (var arg in args)
-            {
                 transformedArguments.Add(AttributeService.Convert(Entity, arg));
-            }
 
             return string.Format(format, transformedArguments.ToArray());
         }
