@@ -1,14 +1,17 @@
 ﻿using Microsoft.Xrm.Sdk;
 using mwo.D365NameCombiner.Plugins.Decorators;
+using mwo.D365NameCombiner.Plugins.Models;
 using System;
 
 namespace mwo.D365NameCombiner.Plugins.Services
 {
     public class AttributeConverterService
     {
-        public AttributeConverterService()
-        {
+        private ICRMContext Context;
 
+        public AttributeConverterService(ICRMContext context)
+        {
+            Context = context;
         }
 
         public object Convert(Entity ent, string attribute)
@@ -30,7 +33,7 @@ namespace mwo.D365NameCombiner.Plugins.Services
                 case Guid g:
                     return g;
                 case EntityReference e:
-                    return new EntityReferencePrintable(e);
+                    return new EntityReferencePrintable(e, Context, this);
                 case OptionSetValue o:
                     return new OptionSetValuePrintable(o);
                 case OptionSetValueCollection os:

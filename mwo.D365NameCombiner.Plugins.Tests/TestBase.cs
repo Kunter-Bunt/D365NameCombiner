@@ -1,6 +1,7 @@
 ﻿using FakeXrmEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
+using mwo.D365NameCombiner.Plugins.Models;
 using System;
 
 namespace mwo.D365NameCombiner.Plugins.Tests
@@ -57,17 +58,21 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         protected Entity Target;
         protected const string SimpleFormat = "{0}";
 
+        protected IOrganizationService OrgService;
+        protected ICRMContext Context;
+        protected XrmFakedContext FakeEasyContext;
 
         [TestInitialize]
         public void Init()
         {
-            var svc = new XrmFakedContext().GetOrganizationService();
+            FakeEasyContext = new XrmFakedContext();
+            OrgService = FakeEasyContext.GetOrganizationService();
 
             var contact = new Entity(EntityNameRef)
             {
                 [BehindLookupAttribute] = BehindLookupValue
             };
-            contact.Id = svc.Create(contact);
+            contact.Id = OrgService.Create(contact);
             var reference = contact.ToEntityReference();
             reference.Name = LookupValueName;
             LookupValue = reference;
@@ -86,6 +91,8 @@ namespace mwo.D365NameCombiner.Plugins.Tests
                 [GuidAttribute] = GuidValue,
                 [NullAttribute] = null
             };
+
+            Context = new FakeContext(FakeEasyContext, Target, null, Target);
         }
     }
 }

@@ -123,9 +123,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorators\EntityReferencePrintableTests.cs" />
     <Compile Include="Decorators\OptionSetValueCollectionPrintableTests.cs" />
     <Compile Include="Decorators\OptionSetValuePrintableTests.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
+    <Compile Include="FakeContext.cs" />
     <Compile Include="Services\AttributeConverterServiceTests.cs" />
     <Compile Include="Services\CombinerServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

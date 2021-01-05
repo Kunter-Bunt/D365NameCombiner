@@ -60,6 +60,8 @@
     <Compile Include="Decorators\MoneyPrintable.cs" />
     <Compile Include="Decorators\OptionSetValuePrintable.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Models\ICRMContext.cs" />
+    <Compile Include="Models\CRMPluginContext.cs" />
     <Compile Include="Services\AttributeConverterService.cs" />
     <Compile Include="Services\CombinerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,5 +69,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -22,7 +22,7 @@ namespace mwo.D365NameCombiner.Plugins.Services.Tests
         public void Convert_Test(string attr, Type outT)
         {
             //Arrange
-            var service = new AttributeConverterService();
+            var service = new AttributeConverterService(Context);
 
             //Act
             var result = service.Convert(Target, attr);
@@ -35,7 +35,7 @@ namespace mwo.D365NameCombiner.Plugins.Services.Tests
         public void Convert_NullTest()
         {
             //Arrange
-            var service = new AttributeConverterService();
+            var service = new AttributeConverterService(Context);
 
             //Act
             var result = service.Convert(Target, NullAttribute);

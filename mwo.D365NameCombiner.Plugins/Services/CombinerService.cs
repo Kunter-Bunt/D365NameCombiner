@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
+using mwo.D365NameCombiner.Plugins.Models;
 using System.Collections.Generic;
 
 namespace mwo.D365NameCombiner.Plugins.Services
@@ -8,10 +9,10 @@ namespace mwo.D365NameCombiner.Plugins.Services
         private Entity Entity { get; set; }
         private AttributeConverterService AttributeService { get; set; }
 
-        public CombinerService(Entity entity)
+        public CombinerService(Entity entity, AttributeConverterService attributeService)
         {
             Entity = entity;
-            AttributeService = new AttributeConverterService();
+            AttributeService = attributeService;
         }
 
         public string Combine(string format, params string[] args)
