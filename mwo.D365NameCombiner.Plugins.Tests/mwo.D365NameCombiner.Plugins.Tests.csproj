@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Decorators\EntityReferencePrintableTests.cs" />
+    <Compile Include="Decorators\MoneyPrintableTests.cs" />
     <Compile Include="Decorators\OptionSetValueCollectionPrintableTests.cs" />
     <Compile Include="Decorators\OptionSetValuePrintableTests.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />

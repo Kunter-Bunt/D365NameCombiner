@@ -73,5 +73,19 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             //Assert
             Assert.AreEqual(entref.Id.ToString(), result);
         }
+
+        [TestMethod]
+        public void ToStringFormat_MissingAttributeTest()
+        {
+            //Arrange 
+            var entref = Target.GetAttributeValue<EntityReference>(LookupAttribute);
+            var Printer = new EntityReferencePrintable(entref, Context, new AttributeConverterService(Context));
+
+            //Act
+            var result = Printer.ToString("NotPresent");
+
+            //Assert
+            Assert.IsNull(result);
+        }
     }
 }

@@ -35,9 +35,9 @@ namespace mwo.D365NameCombiner.Plugins.Services
                 case EntityReference e:
                     return new EntityReferencePrintable(e, Context, this);
                 case OptionSetValue o:
-                    return new OptionSetValuePrintable(o);
+                    return new OptionSetValuePrintable(o, Context, ent.LogicalName, attribute);
                 case OptionSetValueCollection os:
-                    return new OptionSetValueCollectionPrintable(os);
+                    return new OptionSetValueCollectionPrintable(os, Context, ent.LogicalName, attribute);
                 case Money m:
                     return new MoneyPrintable(m);
                 default:

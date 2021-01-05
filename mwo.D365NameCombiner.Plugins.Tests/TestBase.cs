@@ -1,6 +1,8 @@
 ﻿using FakeXrmEasy;
+using FakeXrmEasy.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Metadata;
 using mwo.D365NameCombiner.Plugins.Models;
 using System;
 
@@ -21,7 +23,11 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         protected const bool BooleanValue = true;
 
         protected const int ValueOne = 1;
+        protected const string ValueOneName = "Hello";
         protected const int ValueTwo = 2;
+        protected const string ValueTwoName = "World";
+
+        protected const int LCIDEnglish = 1033;
 
         protected const string EnumAttribute = nameof(EnumAttribute);
         protected readonly OptionSetValue EnumValue = new OptionSetValue(ValueOne);
@@ -68,6 +74,44 @@ namespace mwo.D365NameCombiner.Plugins.Tests
             FakeEasyContext = new XrmFakedContext();
             OrgService = FakeEasyContext.GetOrganizationService();
 
+            SetupMetadata();
+            SetupTarget();
+
+            Context = new FakeContext(FakeEasyContext, Target, null, Target);
+        }
+
+        private void SetupMetadata()
+        {
+            var entityMeta = new EntityMetadata { LogicalName = EntityName };
+
+            var optionMeta = new OptionSetMetadata
+            {
+                OptionSetType = OptionSetType.Picklist,
+                Options =
+                {
+                    new OptionMetadata(new Label(ValueOneName, LCIDEnglish), ValueOne),
+                    new OptionMetadata(new Label(ValueTwoName, LCIDEnglish), ValueTwo),
+                }
+            };
+
+            var enumMeta = new PicklistAttributeMetadata
+            {
+                LogicalName = EnumAttribute,
+                OptionSet = optionMeta
+            };
+            var enumsMeta = new MultiSelectPicklistAttributeMetadata
+            {
+                LogicalName = EnumsAttribute,
+                OptionSet = optionMeta
+            };
+
+            entityMeta.SetAttribute(enumMeta);
+            entityMeta.SetAttribute(enumsMeta);
+            FakeEasyContext.SetEntityMetadata(entityMeta);
+        }
+
+        private void SetupTarget()
+        {
             var contact = new Entity(EntityNameRef)
             {
                 [BehindLookupAttribute] = BehindLookupValue
@@ -91,8 +135,6 @@ namespace mwo.D365NameCombiner.Plugins.Tests
                 [GuidAttribute] = GuidValue,
                 [NullAttribute] = null
             };
-
-            Context = new FakeContext(FakeEasyContext, Target, null, Target);
         }
     }
 }

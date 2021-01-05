@@ -1,42 +1,38 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
-using mwo.D365NameCombiner.Plugins.Decorators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using mwo.D365NameCombiner.Plugins.Tests;
 
 namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
 {
     [TestClass()]
-    public class OptionSetValuePrintableTests
+    public class OptionSetValuePrintableTests : TestBase
     {
-        private const int Value = 1;
-        private OptionSetValue Default = new OptionSetValue(Value);
+        private OptionSetValue Default = new OptionSetValue(ValueOne);
         private OptionSetValue Null = null;
         private const string CorrectFormatter = "1=Hello;2=World";
         private const string BrokenFormatter = "1Hello;;";
         private const string WrongFormatter = "0=Hello";
+        private const string LCIDFormatter = "LCID=1033";
+        private const string LCIDWrongFormatter = "LCID=1031"; //german not configured for the optionset
 
         [TestMethod()]
         public void ToString_SimpleTest()
         {
             //Arrange 
-            var Printer = new OptionSetValuePrintable(Default);
+            var Printer = new OptionSetValuePrintable(Default, Context, EntityName, EnumsAttribute);
 
             //Act
             var result = Printer.ToString();
 
             //Assert
-            Assert.AreEqual(Value.ToString(), result);
+            Assert.AreEqual(ValueOne.ToString(), result);
         }
 
         [TestMethod()]
         public void ToString_SimpleNullTest()
         {
             //Arrange 
-            var Printer = new OptionSetValuePrintable(Null);
+            var Printer = new OptionSetValuePrintable(Null, Context, EntityName, EnumsAttribute);
 
             //Act
             var result = Printer.ToString();
@@ -46,10 +42,10 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
         }
 
         [TestMethod()]
-        public void ToString_CorrectFormatTest()
+        public void ToStringFormat_CorrectFormatTest()
         {
             //Arrange 
-            var Printer = new OptionSetValuePrintable(Default);
+            var Printer = new OptionSetValuePrintable(Default, Context, EntityName, EnumsAttribute);
 
             //Act
             var result = Printer.ToString(CorrectFormatter);
@@ -59,29 +55,68 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
         }
 
         [TestMethod()]
-        public void ToString_BrokenFormatTest()
+        public void ToStringFormat_BrokenFormatTest()
         {
             //Arrange 
-            var Printer = new OptionSetValuePrintable(Default);
+            var Printer = new OptionSetValuePrintable(Default, Context, EntityName, EnumsAttribute);
 
             //Act
             var result = Printer.ToString(BrokenFormatter);
 
             //Assert
-            Assert.AreEqual(Value.ToString(), result);
+            Assert.AreEqual(ValueOne.ToString(), result);
         }
 
         [TestMethod()]
-        public void ToString_WrongFormatTest()
+        public void ToStringFormat_WrongFormatTest()
         {
             //Arrange 
-            var Printer = new OptionSetValuePrintable(Default);
+            var Printer = new OptionSetValuePrintable(Default, Context, EntityName, EnumsAttribute);
 
             //Act
             var result = Printer.ToString(WrongFormatter);
 
             //Assert
-            Assert.AreEqual(Value.ToString(), result);
+            Assert.AreEqual(ValueOne.ToString(), result);
+        }
+
+        [TestMethod()]
+        public void ToStringFormat_CorrectLCIDTest()
+        {
+            //Arrange 
+            var Printer = new OptionSetValuePrintable(Default, Context, EntityName, EnumsAttribute);
+
+            //Act
+            var result = Printer.ToString(LCIDFormatter);
+
+            //Assert
+            Assert.AreEqual("Hello", result);
+        }
+
+        [TestMethod()]
+        public void ToStringFormat_WrongLCIDTest()
+        {
+            //Arrange 
+            var Printer = new OptionSetValuePrintable(Default, Context, EntityName, EnumsAttribute);
+
+            //Act
+            var result = Printer.ToString(LCIDWrongFormatter);
+
+            //Assert
+            Assert.IsNull(result);
+        }
+
+        [TestMethod()]
+        public void ToStringFormat_NoEnumTest()
+        {
+            //Arrange 
+            var Printer = new OptionSetValuePrintable(Default, Context, EntityName, NullAttribute);
+
+            //Act
+            var result = Printer.ToString(LCIDFormatter);
+
+            //Assert
+            Assert.IsNull(result);
         }
     }
 }
