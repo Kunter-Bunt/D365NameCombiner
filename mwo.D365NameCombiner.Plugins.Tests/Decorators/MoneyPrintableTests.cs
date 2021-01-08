@@ -3,11 +3,9 @@ using Microsoft.Xrm.Sdk;
 
 namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
 {
-
     [TestClass]
     public class MoneyPrintableTests
     {
-
         private const decimal Value = 1.24M;
         private readonly Money Default = new Money(Value);
         private readonly Money Null = null;

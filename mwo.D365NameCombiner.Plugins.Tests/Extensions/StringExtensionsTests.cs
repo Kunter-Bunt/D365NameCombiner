@@ -2,10 +2,10 @@
 
 namespace mwo.D365NameCombiner.Plugins.Extensions.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class StringExtensionsTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void ToDictionary_SingleTest()
         {
             //Act
@@ -16,7 +16,7 @@ namespace mwo.D365NameCombiner.Plugins.Extensions.Tests
             Assert.IsTrue(result.ContainsKey("a"));
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToDictionary_MultiTest()
         {
             //Act
@@ -28,7 +28,7 @@ namespace mwo.D365NameCombiner.Plugins.Extensions.Tests
             Assert.IsTrue(result.ContainsKey("b"));
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToDictionary_EmptyTest()
         {
             //Act
@@ -38,7 +38,7 @@ namespace mwo.D365NameCombiner.Plugins.Extensions.Tests
             Assert.AreEqual(0, result.Count);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToDictionary_MalformattedTest()
         {
             //Act
@@ -48,7 +48,7 @@ namespace mwo.D365NameCombiner.Plugins.Extensions.Tests
             Assert.AreEqual(0, result.Count);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToDictionary_PartlyMalformattedTest()
         {
             //Act

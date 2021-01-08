@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xrm.Sdk;
-using mwo.D365NameCombiner.Plugins.Models;
 using System.Collections.Generic;
 
 namespace mwo.D365NameCombiner.Plugins.Services
@@ -8,11 +7,13 @@ namespace mwo.D365NameCombiner.Plugins.Services
     {
         private Entity Entity { get; set; }
         private AttributeConverterService AttributeService { get; set; }
+        private ExpressionConverterService ExpressionService { get; set; }
 
-        public CombinerService(Entity entity, AttributeConverterService attributeService)
+        public CombinerService(Entity entity, AttributeConverterService attributeService, ExpressionConverterService expressionService)
         {
             Entity = entity;
             AttributeService = attributeService;
+            ExpressionService = expressionService;
         }
 
         public string Combine(string format, params string[] args)
@@ -20,7 +21,13 @@ namespace mwo.D365NameCombiner.Plugins.Services
             var transformedArguments = new List<object>();
 
             foreach (var arg in args)
-                transformedArguments.Add(AttributeService.Convert(Entity, arg));
+            {
+                if (arg.Contains("=>"))
+                    transformedArguments.Add(ExpressionService.Convert(arg));
+                else
+                    transformedArguments.Add(AttributeService.Convert(Entity, arg));
+            }
+
 
             return string.Format(format, transformedArguments.ToArray());
         }

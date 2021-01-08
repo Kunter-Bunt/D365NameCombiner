@@ -19,7 +19,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
         private const string BrokenFormatter = "1Hello;;";
         private const string WrongFormatter = "0=Hello";
 
-        [TestMethod()]
+        [TestMethod]
         public void ToString_SimpleTest()
         {
             //Arrange 
@@ -32,7 +32,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.AreEqual($"{ValueOne} {ValueTwo}", result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToString_SimpleNullTest()
         {
             //Arrange 
@@ -45,7 +45,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.IsNull(result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToString_CorrectFormatTest()
         {
             //Arrange 
@@ -58,7 +58,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.AreEqual("Hello World", result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToString_CorrectFormatAndSepartorTest()
         {
             //Arrange 
@@ -70,7 +70,8 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             //Assert
             Assert.AreEqual("Hello-World", result);
         }
-        [TestMethod()]
+
+        [TestMethod]
         public void ToString_SepartorTest()
         {
             //Arrange 
@@ -83,7 +84,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.AreEqual($"{ValueOne}-{ValueTwo}", result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToString_BrokenFormatTest()
         {
             //Arrange 
@@ -96,7 +97,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.AreEqual($"{ValueOne} {ValueTwo}", result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToString_WrongFormatTest()
         {
             //Arrange 

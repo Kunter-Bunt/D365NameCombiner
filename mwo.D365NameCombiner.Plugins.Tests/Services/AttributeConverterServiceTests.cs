@@ -5,7 +5,7 @@ using System;
 
 namespace mwo.D365NameCombiner.Plugins.Services.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class AttributeConverterServiceTests : TestBase
     {
         [DataTestMethod]

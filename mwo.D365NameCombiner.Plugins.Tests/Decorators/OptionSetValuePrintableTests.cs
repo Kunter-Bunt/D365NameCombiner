@@ -7,15 +7,15 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
     [TestClass()]
     public class OptionSetValuePrintableTests : TestBase
     {
-        private OptionSetValue Default = new OptionSetValue(ValueOne);
-        private OptionSetValue Null = null;
+        private readonly OptionSetValue Default = new OptionSetValue(ValueOne);
+        private readonly OptionSetValue Null = null;
         private const string CorrectFormatter = "1=Hello;2=World";
         private const string BrokenFormatter = "1Hello;;";
         private const string WrongFormatter = "0=Hello";
         private const string LCIDFormatter = "LCID=1033";
         private const string LCIDWrongFormatter = "LCID=1031"; //german not configured for the optionset
 
-        [TestMethod()]
+        [TestMethod]
         public void ToString_SimpleTest()
         {
             //Arrange 
@@ -28,7 +28,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.AreEqual(ValueOne.ToString(), result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToString_SimpleNullTest()
         {
             //Arrange 
@@ -41,7 +41,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.IsNull(result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToStringFormat_CorrectFormatTest()
         {
             //Arrange 
@@ -54,7 +54,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.AreEqual("Hello", result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToStringFormat_BrokenFormatTest()
         {
             //Arrange 
@@ -67,7 +67,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.AreEqual(ValueOne.ToString(), result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToStringFormat_WrongFormatTest()
         {
             //Arrange 
@@ -80,7 +80,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.AreEqual(ValueOne.ToString(), result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToStringFormat_CorrectLCIDTest()
         {
             //Arrange 
@@ -93,7 +93,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.AreEqual("Hello", result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToStringFormat_WrongLCIDTest()
         {
             //Arrange 
@@ -106,7 +106,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
             Assert.IsNull(result);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ToStringFormat_NoEnumTest()
         {
             //Arrange 

@@ -3,7 +3,7 @@ using mwo.D365NameCombiner.Plugins.Tests;
 
 namespace mwo.D365NameCombiner.Plugins.Services.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class ExpressionConverterServiceTests : TestBase
     {
         private const string complexExpression = @"_ => 
@@ -12,8 +12,10 @@ namespace mwo.D365NameCombiner.Plugins.Services.Tests
             + EntityHelper.GetValue(_.PostImage, ""IntAttribute"")";
 
         [DataTestMethod]
-        [DataRow(@"_ => EntityHelper.GetValue(_.PostImage, ""StringAttribute"")", StringValue)]
+        [DataRow(SimpleExpression, SimpleExpressionExpected)]
         [DataRow(@"_ => EntityHelper.GetValue(_.PostImage, ""IntAttribute"")", IntValue)]
+        [DataRow(@"_ => ""Hello""", "Hello")]
+        [DataRow(@"_ => _.Target.LogicalName", EntityName)]
         [DataRow(complexExpression, "StringValue/123")]
         public void Convert_Test(string expression, object expected)
         {

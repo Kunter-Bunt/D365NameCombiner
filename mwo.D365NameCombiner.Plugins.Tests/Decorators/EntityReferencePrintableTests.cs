@@ -1,13 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
-using mwo.D365NameCombiner.Plugins.Decorators;
 using mwo.D365NameCombiner.Plugins.Services;
 using mwo.D365NameCombiner.Plugins.Tests;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
 {

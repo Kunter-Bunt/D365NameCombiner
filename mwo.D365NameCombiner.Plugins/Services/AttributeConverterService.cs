@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xrm.Sdk;
 using mwo.D365NameCombiner.Plugins.Decorators;
+using mwo.D365NameCombiner.Plugins.Helpers;
 using mwo.D365NameCombiner.Plugins.Models;
 using System;
 
@@ -16,9 +17,7 @@ namespace mwo.D365NameCombiner.Plugins.Services
 
         public object Convert(Entity ent, string attribute)
         {
-            if (!ent.Contains(attribute)) return null;
-
-            switch (ent[attribute])
+            switch (EntityHelper.GetValue(ent, attribute))
             {
                 case string s:
                     return s;

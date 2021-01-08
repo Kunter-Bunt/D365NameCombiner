@@ -1,12 +1,9 @@
-﻿using FakeXrmEasy;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.Xrm.Sdk;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using mwo.D365NameCombiner.Plugins.Services;
-using System;
 
 namespace mwo.D365NameCombiner.Plugins.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class CombinerServiceTests : TestBase
     {
         protected CombinerService Service;
@@ -14,9 +11,8 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         [TestInitialize]
         public void Initialize()
         {
-            Service = new CombinerService(Target, new AttributeConverterService(Context));
+            Service = new CombinerService(Target, new AttributeConverterService(Context), new ExpressionConverterService(Context));
         }
-
 
         [DataTestMethod]
         [DataRow(StringAttribute, StringValue)]
@@ -28,6 +24,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         [DataRow(DoubleAttribute, "2.48")]
         [DataRow(MoneyAttribute, "3.72")]
         [DataRow(NullAttribute, "")]
+        [DataRow(SimpleExpression, SimpleExpressionExpected)]
         public void Combine_SimpleFormatTest(string attr, object expected)
         {
             //Act

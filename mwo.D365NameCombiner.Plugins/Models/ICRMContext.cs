@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xrm.Sdk;
-using System;
 
 namespace mwo.D365NameCombiner.Plugins.Models
 {
