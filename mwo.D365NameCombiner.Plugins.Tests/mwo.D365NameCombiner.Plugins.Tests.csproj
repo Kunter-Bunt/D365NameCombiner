@@ -132,6 +132,7 @@
     <Compile Include="Services\AttributeConverterServiceTests.cs" />
     <Compile Include="Services\CombinerServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ExpressionConverterServiceTests.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>

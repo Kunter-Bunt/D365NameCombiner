@@ -14,7 +14,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         protected const string EntityNameRef = "contact";
 
         protected const string StringAttribute = nameof(StringAttribute);
-        protected const string StringValue = nameof(StringAttribute);
+        protected const string StringValue = nameof(StringValue);
 
         protected const string IntAttribute = nameof(IntAttribute);
         protected const int IntValue = 123;

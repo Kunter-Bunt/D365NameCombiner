@@ -42,6 +42,9 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Linq.Dynamic.Core, Version=1.2.7.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.Core.1.2.7\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
@@ -60,11 +63,13 @@
     <Compile Include="Decorators\MoneyPrintable.cs" />
     <Compile Include="Decorators\OptionSetValuePrintable.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Helpers\EntityHelper.cs" />
     <Compile Include="Models\ICRMContext.cs" />
     <Compile Include="Models\CRMPluginContext.cs" />
     <Compile Include="Services\AttributeConverterService.cs" />
     <Compile Include="Services\CombinerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ExpressionConverterService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
