@@ -127,6 +127,8 @@
     <Compile Include="Decorators\MoneyPrintableTests.cs" />
     <Compile Include="Decorators\OptionSetValueCollectionPrintableTests.cs" />
     <Compile Include="Decorators\OptionSetValuePrintableTests.cs" />
+    <Compile Include="EntryPoints\NameCombinerTests.cs" />
+    <Compile Include="Executables\NameCombinationExecutableTests.cs" />
     <Compile Include="Extensions\StringExtensionsTests.cs" />
     <Compile Include="FakeContext.cs" />
     <Compile Include="Services\AttributeConverterServiceTests.cs" />

@@ -22,6 +22,8 @@ namespace mwo.D365NameCombiner.Plugins.Services
 
             foreach (var arg in args)
             {
+                if (string.IsNullOrEmpty(arg))
+                    continue;
                 if (arg.Contains("=>"))
                     transformedArguments.Add(ExpressionService.Convert(arg));
                 else

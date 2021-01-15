@@ -11,7 +11,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
     public abstract class TestBase
     {
         protected const string EntityName = "account";
-        protected const string EntityNameRef = "contact";
+        protected const string EntityNameRef = mwo_NameCombination.EntityLogicalName;
 
         protected const string StringAttribute = nameof(StringAttribute);
         protected const string StringValue = nameof(StringValue);
@@ -49,7 +49,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         protected const string LookupValueName = nameof(LookupValueName);
         protected EntityReference LookupValue;
 
-        protected const string BehindLookupAttribute = nameof(BehindLookupAttribute);
+        protected const string BehindLookupAttribute = mwo_NameCombination.Fields.mwo_Table;
         protected const string BehindLookupValue = nameof(BehindLookupValue);
 
         protected const string MoneyAttribute = nameof(MoneyAttribute);
@@ -61,7 +61,12 @@ namespace mwo.D365NameCombiner.Plugins.Tests
 
         protected const string NullAttribute = nameof(NullAttribute);
 
+        protected const string CombinedAttribute = nameof(CombinedAttribute);
+
+        protected mwo_NameCombination Config;
+
         protected Entity Target;
+
         protected const string SimpleFormat = "{0}";
 
         protected const string SimpleExpression = @"_ => EntityHelper.GetValue(_.PostImage, ""StringAttribute"")";
@@ -79,6 +84,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
 
             SetupMetadata();
             SetupTarget();
+            SetupConfig();
 
             Context = new FakeContext(FakeEasyContext, Target, null, Target);
         }
@@ -138,6 +144,18 @@ namespace mwo.D365NameCombiner.Plugins.Tests
                 [GuidAttribute] = GuidValue,
                 [NullAttribute] = null
             };
+        }
+
+        private void SetupConfig()
+        {
+            Config = new mwo_NameCombination()
+            {
+                mwo_Table = EntityName,
+                mwo_Column = CombinedAttribute,
+                mwo_Format = SimpleFormat,
+                mwo_format0 = StringAttribute
+            };
+            Config.Id = OrgService.Create(Config);
         }
     }
 }
