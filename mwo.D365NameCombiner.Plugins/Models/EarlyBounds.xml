@@ -18,7 +18,8 @@
     <CreateOneFilePerOptionSet>true</CreateOneFilePerOptionSet>
     <DeleteFilesFromOutputFolders>false</DeleteFilesFromOutputFolders>
     <EntitiesToSkip />
-    <EntitiesWhitelist>mwo_namecombination</EntitiesWhitelist>
+    <EntitiesWhitelist>mwo_namecombination|
+mwo_pluginstepregistration</EntitiesWhitelist>
     <EntityAttributeSpecifiedNames />
     <EntityPrefixesToSkip />
     <EntityPrefixesWhitelist />

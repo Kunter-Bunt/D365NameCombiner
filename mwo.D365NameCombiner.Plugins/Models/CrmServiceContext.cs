@@ -40,6 +40,18 @@ namespace mwo.D365NameCombiner.Plugins.Models
 				return this.CreateQuery<mwo.D365NameCombiner.Plugins.Models.mwo_NameCombination>();
 			}
 		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistration"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistration> mwo_PluginStepRegistrationSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistration>();
+			}
+		}
 	}
 	
 	internal sealed class EntityOptionSetEnum

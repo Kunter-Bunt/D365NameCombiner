@@ -75,7 +75,9 @@
     <Compile Include="Decorators\OptionSetValueCollectionPrintable.cs" />
     <Compile Include="Decorators\OptionSetValuePrintable.cs" />
     <Compile Include="Entrypoints\NameCombiner.cs" />
+    <Compile Include="Entrypoints\PostOpNameCombination.cs" />
     <Compile Include="Executables\NameCombinationExecutable.cs" />
+    <Compile Include="Executables\RegistrationExecutable.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\EntityHelper.cs" />
@@ -83,8 +85,13 @@
     <Compile Include="Models\CRMPluginContext.cs" />
     <Compile Include="Models\CrmServiceContext.cs" />
     <Compile Include="Models\ICRMContext.cs" />
+    <Compile Include="Models\mwo_EventHandlerType.cs" />
+    <Compile Include="Models\mwo_ImageType.cs" />
     <Compile Include="Models\mwo_NameCombination.cs" />
     <Compile Include="Models\mwo_NameCombination_StatusCode.cs" />
+    <Compile Include="Models\mwo_PluginStage.cs" />
+    <Compile Include="Models\mwo_PluginStepRegistration.cs" />
+    <Compile Include="Models\mwo_PluginStepRegistration_StatusCode.cs" />
     <Compile Include="Models\OptionSets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AttributeConverterService.cs" />

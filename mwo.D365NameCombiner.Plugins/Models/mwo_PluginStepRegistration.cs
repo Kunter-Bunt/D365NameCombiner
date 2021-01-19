@@ -12,7 +12,7 @@ namespace mwo.D365NameCombiner.Plugins.Models
 {
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	public enum mwo_NameCombinationState
+	public enum mwo_PluginStepRegistrationState
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
@@ -23,11 +23,11 @@ namespace mwo.D365NameCombiner.Plugins.Models
 	}
 	
 	/// <summary>
-	/// A configuration Entity for automatic filling of string fields in other entities.
+	/// This entity is a management entity for Plugin Step Registrations
 	/// </summary>
 	[System.Runtime.Serialization.DataContractAttribute()]
-	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("mwo_namecombination")]
-	public partial class mwo_NameCombination : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("mwo_pluginstepregistration")]
+	public partial class mwo_PluginStepRegistration : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	{
 		
 		public static class Fields
@@ -39,24 +39,24 @@ namespace mwo.D365NameCombiner.Plugins.Models
 			public const string ModifiedBy = "modifiedby";
 			public const string ModifiedOn = "modifiedon";
 			public const string ModifiedOnBehalfBy = "modifiedonbehalfby";
-			public const string mwo_Column = "mwo_column";
-			public const string mwo_CreateStep = "mwo_createstep";
-			public const string mwo_Format = "mwo_format";
-			public const string mwo_format0 = "mwo_format0";
-			public const string mwo_format1 = "mwo_format1";
-			public const string mwo_format2 = "mwo_format2";
-			public const string mwo_format3 = "mwo_format3";
-			public const string mwo_format4 = "mwo_format4";
-			public const string mwo_format5 = "mwo_format5";
-			public const string mwo_format6 = "mwo_format6";
-			public const string mwo_format7 = "mwo_format7";
-			public const string mwo_format8 = "mwo_format8";
-			public const string mwo_format9 = "mwo_format9";
+			public const string mwo_Asynchronous = "mwo_asynchronous";
+			public const string mwo_Description = "mwo_description";
+			public const string mwo_EventHandler = "mwo_eventhandler";
+			public const string mwo_EventHandlerType = "mwo_eventhandlertype";
+			public const string mwo_FilteringAttributes = "mwo_filteringattributes";
+			public const string mwo_ImageAttributes = "mwo_imageattributes";
+			public const string mwo_ImageName = "mwo_imagename";
+			public const string mwo_ImageType = "mwo_imagetype";
+			public const string mwo_Managed = "mwo_managed";
 			public const string mwo_Name = "mwo_name";
-			public const string mwo_NameCombinationId = "mwo_namecombinationid";
-			public const string Id = "mwo_namecombinationid";
-			public const string mwo_Table = "mwo_table";
-			public const string mwo_UpdateStep = "mwo_updatestep";
+			public const string mwo_PluginStepId = "mwo_pluginstepid";
+			public const string mwo_PluginStepRegistrationId = "mwo_pluginstepregistrationid";
+			public const string Id = "mwo_pluginstepregistrationid";
+			public const string mwo_PluginStepStage = "mwo_pluginstepstage";
+			public const string mwo_PrimaryEntity = "mwo_primaryentity";
+			public const string mwo_SDKMessage = "mwo_sdkmessage";
+			public const string mwo_SecondaryEntity = "mwo_secondaryentity";
+			public const string mwo_StepConfiguration = "mwo_stepconfiguration";
 			public const string OrganizationId = "organizationid";
 			public const string OverriddenCreatedOn = "overriddencreatedon";
 			public const string StateCode = "statecode";
@@ -64,48 +64,46 @@ namespace mwo.D365NameCombiner.Plugins.Models
 			public const string TimeZoneRuleVersionNumber = "timezoneruleversionnumber";
 			public const string UTCConversionTimeZoneCode = "utcconversiontimezonecode";
 			public const string VersionNumber = "versionnumber";
-			public const string mwo_NameCombination_CreateStep_mwo_Plugin = "mwo_NameCombination_CreateStep_mwo_Plugin";
-			public const string mwo_NameCombination_UpdateStep_mwo_Plugin = "mwo_NameCombination_UpdateStep_mwo_Plugin";
 		}
 		
 		/// <summary>
 		/// Default Constructor.
 		/// </summary>
 		[System.Diagnostics.DebuggerNonUserCode()]
-		public mwo_NameCombination() : 
+		public mwo_PluginStepRegistration() : 
 				base(EntityLogicalName)
 		{
 		}
 		
 		[System.Diagnostics.DebuggerNonUserCode()]
-		public mwo_NameCombination(System.Guid id) : 
+		public mwo_PluginStepRegistration(System.Guid id) : 
 				base(EntityLogicalName, id)
 		{
 		}
 		
 		[System.Diagnostics.DebuggerNonUserCode()]
-		public mwo_NameCombination(string keyName, object keyValue) : 
+		public mwo_PluginStepRegistration(string keyName, object keyValue) : 
 				base(EntityLogicalName, keyName, keyValue)
 		{
 		}
 		
 		[System.Diagnostics.DebuggerNonUserCode()]
-		public mwo_NameCombination(Microsoft.Xrm.Sdk.KeyAttributeCollection keyAttributes) : 
+		public mwo_PluginStepRegistration(Microsoft.Xrm.Sdk.KeyAttributeCollection keyAttributes) : 
 				base(EntityLogicalName, keyAttributes)
 		{
 		}
 		
-		public const string EntityLogicalName = "mwo_namecombination";
+		public const string EntityLogicalName = "mwo_pluginstepregistration";
 		
-		public const string EntitySchemaName = "mwo_NameCombination";
+		public const string EntitySchemaName = "mwo_PluginStepRegistration";
 		
-		public const string PrimaryIdAttribute = "mwo_namecombinationid";
+		public const string PrimaryIdAttribute = "mwo_pluginstepregistrationid";
 		
 		public const string PrimaryNameAttribute = "mwo_name";
 		
-		public const string EntityLogicalCollectionName = "mwo_namecombinations";
+		public const string EntityLogicalCollectionName = "mwo_pluginstepregistrations";
 		
-		public const string EntitySetName = "mwo_namecombinations";
+		public const string EntitySetName = "mwo_pluginstepregistrations";
 		
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 		
@@ -242,262 +240,182 @@ namespace mwo.D365NameCombiner.Plugins.Models
 		}
 		
 		/// <summary>
-		/// The target field ehich will be filled with the combined name.
+		/// Whether to execute the step asynchronously.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_column")]
-		public string mwo_Column
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_asynchronous")]
+		public System.Nullable<bool> mwo_Asynchronous
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("mwo_column");
+				return this.GetAttributeValue<System.Nullable<bool>>("mwo_asynchronous");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_Column");
-				this.SetAttributeValue("mwo_column", value);
-				this.OnPropertyChanged("mwo_Column");
+				this.OnPropertyChanging("mwo_Asynchronous");
+				this.SetAttributeValue("mwo_asynchronous", value);
+				this.OnPropertyChanged("mwo_Asynchronous");
 			}
 		}
 		
 		/// <summary>
-		/// The Plugin Step performing the Combination on Create
+		/// The Description of the Plugin Step
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_createstep")]
-		public Microsoft.Xrm.Sdk.EntityReference mwo_CreateStep
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_description")]
+		public string mwo_Description
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("mwo_createstep");
+				return this.GetAttributeValue<string>("mwo_description");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_CreateStep");
-				this.SetAttributeValue("mwo_createstep", value);
-				this.OnPropertyChanged("mwo_CreateStep");
-			}
-		}
-		
-		/// <summary>
-		/// A Format String which is used for the combination
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format")]
-		public string mwo_Format
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("mwo_format");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("mwo_Format");
-				this.SetAttributeValue("mwo_format", value);
-				this.OnPropertyChanged("mwo_Format");
+				this.OnPropertyChanging("mwo_Description");
+				this.SetAttributeValue("mwo_description", value);
+				this.OnPropertyChanged("mwo_Description");
 			}
 		}
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format0")]
-		public string mwo_format0
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_eventhandler")]
+		public string mwo_EventHandler
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("mwo_format0");
+				return this.GetAttributeValue<string>("mwo_eventhandler");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_format0");
-				this.SetAttributeValue("mwo_format0", value);
-				this.OnPropertyChanged("mwo_format0");
+				this.OnPropertyChanging("mwo_EventHandler");
+				this.SetAttributeValue("mwo_eventhandler", value);
+				this.OnPropertyChanged("mwo_EventHandler");
 			}
 		}
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format1")]
-		public string mwo_format1
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_eventhandlertype")]
+		public virtual mwo_EventHandlerType? mwo_EventHandlerType
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("mwo_format1");
+				return ((mwo_EventHandlerType?)(EntityOptionSetEnum.GetEnum(this, "mwo_eventhandlertype")));
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_format1");
-				this.SetAttributeValue("mwo_format1", value);
-				this.OnPropertyChanged("mwo_format1");
+				this.OnPropertyChanging("mwo_EventHandlerType");
+				this.SetAttributeValue("mwo_eventhandlertype", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("mwo_EventHandlerType");
 			}
 		}
 		
 		/// <summary>
-		/// 
+		/// Filtering Attributes for the Update Message
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format2")]
-		public string mwo_format2
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_filteringattributes")]
+		public string mwo_FilteringAttributes
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("mwo_format2");
+				return this.GetAttributeValue<string>("mwo_filteringattributes");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_format2");
-				this.SetAttributeValue("mwo_format2", value);
-				this.OnPropertyChanged("mwo_format2");
+				this.OnPropertyChanging("mwo_FilteringAttributes");
+				this.SetAttributeValue("mwo_filteringattributes", value);
+				this.OnPropertyChanged("mwo_FilteringAttributes");
 			}
 		}
 		
 		/// <summary>
-		/// 
+		/// Images will be filtered to this comma separated list of entity attributes. Leave blank if you want all.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format3")]
-		public string mwo_format3
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_imageattributes")]
+		public string mwo_ImageAttributes
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("mwo_format3");
+				return this.GetAttributeValue<string>("mwo_imageattributes");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_format3");
-				this.SetAttributeValue("mwo_format3", value);
-				this.OnPropertyChanged("mwo_format3");
+				this.OnPropertyChanging("mwo_ImageAttributes");
+				this.SetAttributeValue("mwo_imageattributes", value);
+				this.OnPropertyChanged("mwo_ImageAttributes");
 			}
 		}
 		
 		/// <summary>
-		/// 
+		/// The Key of the Image in the Plugin Context
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format4")]
-		public string mwo_format4
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_imagename")]
+		public string mwo_ImageName
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("mwo_format4");
+				return this.GetAttributeValue<string>("mwo_imagename");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_format4");
-				this.SetAttributeValue("mwo_format4", value);
-				this.OnPropertyChanged("mwo_format4");
+				this.OnPropertyChanging("mwo_ImageName");
+				this.SetAttributeValue("mwo_imagename", value);
+				this.OnPropertyChanged("mwo_ImageName");
 			}
 		}
 		
 		/// <summary>
-		/// 
+		/// Select an Image Type you want to associate with the plugin step
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format5")]
-		public string mwo_format5
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_imagetype")]
+		public virtual mwo_ImageType? mwo_ImageType
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("mwo_format5");
+				return ((mwo_ImageType?)(EntityOptionSetEnum.GetEnum(this, "mwo_imagetype")));
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_format5");
-				this.SetAttributeValue("mwo_format5", value);
-				this.OnPropertyChanged("mwo_format5");
+				this.OnPropertyChanging("mwo_ImageType");
+				this.SetAttributeValue("mwo_imagetype", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("mwo_ImageType");
 			}
 		}
 		
 		/// <summary>
-		/// 
+		/// Determines whether this record manages the according Dynamics Plugin Registration Step. Select no to untie the record and be able to delete it without deleting the actual  registration.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format6")]
-		public string mwo_format6
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_managed")]
+		public System.Nullable<bool> mwo_Managed
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("mwo_format6");
+				return this.GetAttributeValue<System.Nullable<bool>>("mwo_managed");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_format6");
-				this.SetAttributeValue("mwo_format6", value);
-				this.OnPropertyChanged("mwo_format6");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format7")]
-		public string mwo_format7
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("mwo_format7");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("mwo_format7");
-				this.SetAttributeValue("mwo_format7", value);
-				this.OnPropertyChanged("mwo_format7");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format8")]
-		public string mwo_format8
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("mwo_format8");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("mwo_format8");
-				this.SetAttributeValue("mwo_format8", value);
-				this.OnPropertyChanged("mwo_format8");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_format9")]
-		public string mwo_format9
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("mwo_format9");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("mwo_format9");
-				this.SetAttributeValue("mwo_format9", value);
-				this.OnPropertyChanged("mwo_format9");
+				this.OnPropertyChanging("mwo_Managed");
+				this.SetAttributeValue("mwo_managed", value);
+				this.OnPropertyChanged("mwo_Managed");
 			}
 		}
 		
@@ -522,21 +440,41 @@ namespace mwo.D365NameCombiner.Plugins.Models
 		}
 		
 		/// <summary>
-		/// Unique identifier for entity instances
+		/// Holds the Guid to the actual Dynamics Plugin Step
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_namecombinationid")]
-		public System.Nullable<System.Guid> mwo_NameCombinationId
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_pluginstepid")]
+		public string mwo_PluginStepId
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<System.Nullable<System.Guid>>("mwo_namecombinationid");
+				return this.GetAttributeValue<string>("mwo_pluginstepid");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_NameCombinationId");
-				this.SetAttributeValue("mwo_namecombinationid", value);
+				this.OnPropertyChanging("mwo_PluginStepId");
+				this.SetAttributeValue("mwo_pluginstepid", value);
+				this.OnPropertyChanged("mwo_PluginStepId");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier for entity instances
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_pluginstepregistrationid")]
+		public System.Nullable<System.Guid> mwo_PluginStepRegistrationId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("mwo_pluginstepregistrationid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("mwo_PluginStepRegistrationId");
+				this.SetAttributeValue("mwo_pluginstepregistrationid", value);
 				if (value.HasValue)
 				{
 					base.Id = value.Value;
@@ -545,11 +483,11 @@ namespace mwo.D365NameCombiner.Plugins.Models
 				{
 					base.Id = System.Guid.Empty;
 				}
-				this.OnPropertyChanged("mwo_NameCombinationId");
+				this.OnPropertyChanged("mwo_PluginStepRegistrationId");
 			}
 		}
 		
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_namecombinationid")]
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_pluginstepregistrationid")]
 		public override System.Guid Id
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
@@ -560,47 +498,107 @@ namespace mwo.D365NameCombiner.Plugins.Models
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.mwo_NameCombinationId = value;
+				this.mwo_PluginStepRegistrationId = value;
 			}
 		}
 		
 		/// <summary>
-		/// The entity containing the target field of the combination
+		/// The Stage to execute in
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_table")]
-		public string mwo_Table
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_pluginstepstage")]
+		public virtual mwo_PluginStage? mwo_PluginStepStage
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("mwo_table");
+				return ((mwo_PluginStage?)(EntityOptionSetEnum.GetEnum(this, "mwo_pluginstepstage")));
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_Table");
-				this.SetAttributeValue("mwo_table", value);
-				this.OnPropertyChanged("mwo_Table");
+				this.OnPropertyChanging("mwo_PluginStepStage");
+				this.SetAttributeValue("mwo_pluginstepstage", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("mwo_PluginStepStage");
 			}
 		}
 		
 		/// <summary>
-		/// The Plugin Step performing the Combination on Update
+		/// The primary Entity you want to register to
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_updatestep")]
-		public Microsoft.Xrm.Sdk.EntityReference mwo_UpdateStep
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_primaryentity")]
+		public string mwo_PrimaryEntity
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("mwo_updatestep");
+				return this.GetAttributeValue<string>("mwo_primaryentity");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("mwo_UpdateStep");
-				this.SetAttributeValue("mwo_updatestep", value);
-				this.OnPropertyChanged("mwo_UpdateStep");
+				this.OnPropertyChanging("mwo_PrimaryEntity");
+				this.SetAttributeValue("mwo_primaryentity", value);
+				this.OnPropertyChanged("mwo_PrimaryEntity");
+			}
+		}
+		
+		/// <summary>
+		/// The Dynamics SDK Message to Register to
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_sdkmessage")]
+		public string mwo_SDKMessage
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("mwo_sdkmessage");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("mwo_SDKMessage");
+				this.SetAttributeValue("mwo_sdkmessage", value);
+				this.OnPropertyChanged("mwo_SDKMessage");
+			}
+		}
+		
+		/// <summary>
+		/// The secondary entity to register to, only valid in a few messages like Associate.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_secondaryentity")]
+		public string mwo_SecondaryEntity
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("mwo_secondaryentity");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("mwo_SecondaryEntity");
+				this.SetAttributeValue("mwo_secondaryentity", value);
+				this.OnPropertyChanged("mwo_SecondaryEntity");
+			}
+		}
+		
+		/// <summary>
+		/// Unsecure Configuration for the Plugin Step
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_stepconfiguration")]
+		public string mwo_StepConfiguration
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("mwo_stepconfiguration");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("mwo_StepConfiguration");
+				this.SetAttributeValue("mwo_stepconfiguration", value);
+				this.OnPropertyChanged("mwo_StepConfiguration");
 			}
 		}
 		
@@ -638,10 +636,10 @@ namespace mwo.D365NameCombiner.Plugins.Models
 		}
 		
 		/// <summary>
-		/// Status of the Name Combination
+		/// Status of the Plugin Step Registration
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<mwo.D365NameCombiner.Plugins.Models.mwo_NameCombinationState> StateCode
+		public System.Nullable<mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistrationState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -649,7 +647,7 @@ namespace mwo.D365NameCombiner.Plugins.Models
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((mwo.D365NameCombiner.Plugins.Models.mwo_NameCombinationState)(System.Enum.ToObject(typeof(mwo.D365NameCombiner.Plugins.Models.mwo_NameCombinationState), optionSet.Value)));
+					return ((mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistrationState)(System.Enum.ToObject(typeof(mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistrationState), optionSet.Value)));
 				}
 				else
 				{
@@ -673,15 +671,15 @@ namespace mwo.D365NameCombiner.Plugins.Models
 		}
 		
 		/// <summary>
-		/// Reason for the status of the Name Combination
+		/// Reason for the status of the Plugin Step Registration
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statuscode")]
-		public virtual mwo_NameCombination_StatusCode? StatusCode
+		public virtual mwo_PluginStepRegistration_StatusCode? StatusCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return ((mwo_NameCombination_StatusCode?)(EntityOptionSetEnum.GetEnum(this, "statuscode")));
+				return ((mwo_PluginStepRegistration_StatusCode?)(EntityOptionSetEnum.GetEnum(this, "statuscode")));
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
@@ -746,43 +744,41 @@ namespace mwo.D365NameCombiner.Plugins.Models
 		}
 		
 		/// <summary>
-		/// N:1 mwo_NameCombination_CreateStep_mwo_Plugin
+		/// 1:N mwo_NameCombination_CreateStep_mwo_Plugin
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_createstep")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("mwo_NameCombination_CreateStep_mwo_Plugin")]
-		public mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistration mwo_NameCombination_CreateStep_mwo_Plugin
+		public System.Collections.Generic.IEnumerable<mwo.D365NameCombiner.Plugins.Models.mwo_NameCombination> mwo_NameCombination_CreateStep_mwo_Plugin
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistration>("mwo_NameCombination_CreateStep_mwo_Plugin", null);
+				return this.GetRelatedEntities<mwo.D365NameCombiner.Plugins.Models.mwo_NameCombination>("mwo_NameCombination_CreateStep_mwo_Plugin", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("mwo_NameCombination_CreateStep_mwo_Plugin");
-				this.SetRelatedEntity<mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistration>("mwo_NameCombination_CreateStep_mwo_Plugin", null, value);
+				this.SetRelatedEntities<mwo.D365NameCombiner.Plugins.Models.mwo_NameCombination>("mwo_NameCombination_CreateStep_mwo_Plugin", null, value);
 				this.OnPropertyChanged("mwo_NameCombination_CreateStep_mwo_Plugin");
 			}
 		}
 		
 		/// <summary>
-		/// N:1 mwo_NameCombination_UpdateStep_mwo_Plugin
+		/// 1:N mwo_NameCombination_UpdateStep_mwo_Plugin
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_updatestep")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("mwo_NameCombination_UpdateStep_mwo_Plugin")]
-		public mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistration mwo_NameCombination_UpdateStep_mwo_Plugin
+		public System.Collections.Generic.IEnumerable<mwo.D365NameCombiner.Plugins.Models.mwo_NameCombination> mwo_NameCombination_UpdateStep_mwo_Plugin
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistration>("mwo_NameCombination_UpdateStep_mwo_Plugin", null);
+				return this.GetRelatedEntities<mwo.D365NameCombiner.Plugins.Models.mwo_NameCombination>("mwo_NameCombination_UpdateStep_mwo_Plugin", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("mwo_NameCombination_UpdateStep_mwo_Plugin");
-				this.SetRelatedEntity<mwo.D365NameCombiner.Plugins.Models.mwo_PluginStepRegistration>("mwo_NameCombination_UpdateStep_mwo_Plugin", null, value);
+				this.SetRelatedEntities<mwo.D365NameCombiner.Plugins.Models.mwo_NameCombination>("mwo_NameCombination_UpdateStep_mwo_Plugin", null, value);
 				this.OnPropertyChanged("mwo_NameCombination_UpdateStep_mwo_Plugin");
 			}
 		}
@@ -792,7 +788,7 @@ namespace mwo.D365NameCombiner.Plugins.Models
 		/// <param name="anonymousType">LINQ anonymous type.</param>
 		/// </summary>
 		[System.Diagnostics.DebuggerNonUserCode()]
-		public mwo_NameCombination(object anonymousType) : 
+		public mwo_PluginStepRegistration(object anonymousType) : 
 				this()
 		{
             foreach (var p in anonymousType.GetType().GetProperties())
@@ -810,9 +806,9 @@ namespace mwo.D365NameCombiner.Plugins.Models
                 {
                     case "id":
                         base.Id = (System.Guid)value;
-                        Attributes["mwo_namecombinationid"] = base.Id;
+                        Attributes["mwo_pluginstepregistrationid"] = base.Id;
                         break;
-                    case "mwo_namecombinationid":
+                    case "mwo_pluginstepregistrationid":
                         var id = (System.Nullable<System.Guid>) value;
                         if(id == null){ continue; }
                         base.Id = id.Value;
