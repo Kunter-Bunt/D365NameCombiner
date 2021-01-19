@@ -13,7 +13,7 @@ namespace mwo.D365NameCombiner.Plugins.Services.Tests
 
         [DataTestMethod]
         [DataRow(SimpleExpression, SimpleExpressionExpected)]
-        [DataRow(@"_ => string(EntityHelper.GetValue(_.Subject, ""IntAttribute""))", IntValue)]
+        [DataRow(@"_ => EntityHelper.GetValue(_.Subject, ""IntAttribute"")", IntValue)]
         [DataRow(@"_ => ""Hello""", "Hello")]
         [DataRow(@"_ => _.Target.LogicalName", EntityName)]
         [DataRow(complexExpression, "StringValue/123")]
