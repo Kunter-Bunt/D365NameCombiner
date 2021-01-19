@@ -8,7 +8,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
     {
         public Entity Target { get; }
         public Entity PreImage { get; }
-        public Entity PostImage { get; }
+        public Entity Subject { get; }
         public IOrganizationService OrgService { get; }
         public IPluginExecutionContext PluginContext { get; }
         public ITracingService Trace { get; }
@@ -20,7 +20,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
             PluginContext = ctx.GetDefaultPluginContext();
             Target = target;
             PreImage = preImage;
-            PostImage = postImage;
+            Subject = postImage;
         }
     }
 }

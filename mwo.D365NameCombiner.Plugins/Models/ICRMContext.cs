@@ -9,7 +9,7 @@ namespace mwo.D365NameCombiner.Plugins.Models
     {
         Entity Target { get; }
         Entity PreImage { get; }
-        Entity PostImage { get; }
+        Entity Subject { get; }
         IOrganizationService OrgService { get; }
         IPluginExecutionContext PluginContext { get; }
         ITracingService Trace { get; }

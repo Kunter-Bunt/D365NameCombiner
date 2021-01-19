@@ -11,7 +11,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         [TestInitialize]
         public void Initialize()
         {
-            Service = new CombinerService(Target, new AttributeConverterService(Context), new ExpressionConverterService(Context));
+            Service = new CombinerService(Target, new AttributeConverterService(Context), new ExpressionConverterService(Context), Context);
         }
 
         [DataTestMethod]

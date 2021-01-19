@@ -23,7 +23,7 @@ namespace mwo.D365NameCombiner.Plugins.EntryPoints
 
             var attributeService = new AttributeConverterService(context);
             var expressionService = new ExpressionConverterService(context);
-            var combinerService = new CombinerService(context.PostImage, attributeService, expressionService);
+            var combinerService = new CombinerService(context.Subject, attributeService, expressionService, context);
 
             var executable = new NameCombinationExecutable(combinerService, context);
             executable.Execute(context.Target, UnsecureConfiguration);

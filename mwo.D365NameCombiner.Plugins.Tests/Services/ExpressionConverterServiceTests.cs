@@ -7,13 +7,13 @@ namespace mwo.D365NameCombiner.Plugins.Services.Tests
     public class ExpressionConverterServiceTests : TestBase
     {
         private const string complexExpression = @"_ => 
-            EntityHelper.GetValue(_.PostImage, ""StringAttribute"") 
-            + (EntityHelper.HasValue(_.PostImage, ""StringAttribute"") && EntityHelper.HasValue(_.PostImage, ""IntAttribute"") ? ""/"" : null) 
-            + EntityHelper.GetValue(_.PostImage, ""IntAttribute"")";
+            EntityHelper.GetValue(_.Subject, ""StringAttribute"") 
+            + (EntityHelper.HasValue(_.Subject, ""StringAttribute"") && EntityHelper.HasValue(_.Subject, ""IntAttribute"") ? ""/"" : null) 
+            + EntityHelper.GetValue(_.Subject, ""IntAttribute"")";
 
         [DataTestMethod]
         [DataRow(SimpleExpression, SimpleExpressionExpected)]
-        [DataRow(@"_ => EntityHelper.GetValue(_.PostImage, ""IntAttribute"")", IntValue)]
+        [DataRow(@"_ => string(EntityHelper.GetValue(_.Subject, ""IntAttribute""))", IntValue)]
         [DataRow(@"_ => ""Hello""", "Hello")]
         [DataRow(@"_ => _.Target.LogicalName", EntityName)]
         [DataRow(complexExpression, "StringValue/123")]

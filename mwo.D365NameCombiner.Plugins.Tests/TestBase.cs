@@ -69,7 +69,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
 
         protected const string SimpleFormat = "{0}";
 
-        protected const string SimpleExpression = @"_ => EntityHelper.GetValue(_.PostImage, ""StringAttribute"")";
+        protected const string SimpleExpression = @"_ => EntityHelper.GetValue(_.Subject, ""StringAttribute"")";
         protected const string SimpleExpressionExpected = StringValue;
 
         protected IOrganizationService OrgService;

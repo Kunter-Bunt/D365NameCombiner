@@ -17,6 +17,7 @@ namespace mwo.D365NameCombiner.Plugins.Services
 
         public object Convert(Entity ent, string attribute)
         {
+            Context.Trace.Trace($"Converting Attribute {attribute} on {ent?.LogicalName}");
             switch (EntityHelper.GetValue(ent, attribute))
             {
                 case string s:

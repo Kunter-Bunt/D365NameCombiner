@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
+using mwo.D365NameCombiner.Plugins.Extensions;
 using System;
 
 namespace mwo.D365NameCombiner.Plugins.Models
@@ -7,11 +8,10 @@ namespace mwo.D365NameCombiner.Plugins.Models
     {
         public const string TargetName = "Target";
         public const string PreImageName = "Default";
-        public const string PostImageName = "Default";
 
         public Entity Target { get; private set; }
         public Entity PreImage { get; private set; }
-        public Entity PostImage { get; private set; }
+        public Entity Subject { get; private set; }
         public IOrganizationService OrgService { get; private set; }
         public IPluginExecutionContext PluginContext { get; private set; }
         public IOrganizationServiceFactory Factory { get; private set; }
@@ -39,10 +39,9 @@ namespace mwo.D365NameCombiner.Plugins.Models
             if (PluginContext.PreEntityImages.ContainsKey(PreImageName)
                 && (PluginContext.PreEntityImages[PreImageName] is Entity preImageEntity))
                 PreImage = preImageEntity;
+            Trace.Trace($"PreImage present: {PreImage != null}");
 
-            if (PluginContext.PostEntityImages.ContainsKey(PostImageName)
-                && (PluginContext.PostEntityImages[PostImageName] is Entity postImageEntity))
-                PostImage = postImageEntity;
+            Subject = PreImage == null ? Target : PreImage.Merge(Target);
 
             OrgService = Factory.CreateOrganizationService(PluginContext.UserId);
         }

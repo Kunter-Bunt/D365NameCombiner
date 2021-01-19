@@ -13,7 +13,6 @@ namespace mwo.D365NameCombiner.Plugins.EntryPoints.Tests
             //Arrange
             var ctx = FakeEasyContext.GetDefaultPluginContext();
             ctx.InputParameters.Add(CRMPluginContext.TargetName, Target);
-            ctx.PostEntityImages.Add(CRMPluginContext.PostImageName, Target);
 
             //Act
             FakeEasyContext.ExecutePluginWithConfigurations<NameCombiner>(ctx, Config.Id.ToString(), null);
