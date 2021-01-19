@@ -23,21 +23,24 @@ namespace mwo.D365NameCombiner.Plugins.Services
         {
             var transformedArguments = new List<object>();
 
+            Context.Trace.Trace($"Transforming:");
             foreach (var arg in args)
             {
-                if (string.IsNullOrEmpty(arg))
-                    continue;
+                object transformed = null;
 
                 Context.Trace.Trace($"Processing arg: {arg}");
-
-                object transformed = null;
-                if (arg.Contains("=>"))
+                if (string.IsNullOrEmpty(arg))
+                    transformed = null;
+                else if (arg.Contains("=>"))
                     transformed = ExpressionService.Convert(arg);
                 else
                     transformed = AttributeService.Convert(Entity, arg);
 
                 Context.Trace.Trace($"Processed arg: {transformed}");
                 transformedArguments.Add(transformed);
+
+                Context.Trace.Trace($"-----------------");
+
             }
 
             Context.Trace.Trace($"Done transforming, formatting \"{format}\" with {transformedArguments.Count} args.");

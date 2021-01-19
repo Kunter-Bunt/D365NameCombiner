@@ -31,11 +31,11 @@ namespace mwo.D365NameCombiner.Plugins.Decorators
 
             if (string.IsNullOrEmpty(format)) return ToString();
 
-            if (format.ToLower() == "name")
+            if (format == "Name")
                 return Reference.Name;
-            else if (format.ToLower() == "logicalname")
+            else if (format == "LogicalName")
                 return Reference.LogicalName;
-            else if (format.ToLower() == "id")
+            else if (format == "Id")
                 return Reference.Id.ToString();
             else
                 return ResolveField(format);

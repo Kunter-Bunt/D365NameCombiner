@@ -39,7 +39,7 @@ namespace mwo.D365NameCombiner.Plugins.Decorators.Tests
 
         [DataTestMethod]
         [DataRow("Name", LookupValueName)]
-        [DataRow("logicalname", EntityNameRef)]
+        [DataRow("LogicalName", EntityNameRef)]
         [DataRow(BehindLookupAttribute, BehindLookupValue)]
         public void ToStringFormat_Test(string format, string expected)
         {
