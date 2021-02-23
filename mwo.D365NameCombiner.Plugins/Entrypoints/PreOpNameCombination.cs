@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xrm.Sdk;
 using mwo.D365NameCombiner.Plugins.Executables;
 using mwo.D365NameCombiner.Plugins.Models;
-using mwo.D365NameCombiner.Plugins.Services;
 using System;
 
 namespace mwo.D365NameCombiner.Plugins.Entrypoints
@@ -12,11 +11,7 @@ namespace mwo.D365NameCombiner.Plugins.Entrypoints
         {
             var context = new CRMPluginContext(serviceProvider);
 
-            var attributeService = new AttributeConverterService(context);
-            var expressionService = new ExpressionConverterService(context);
-            var combinerService = new CombinerService(context.Subject, attributeService, expressionService, context);
-
-            var executable = new OwnNameCombinationExecutable(context.Trace, combinerService);
+            var executable = new OwnNameCombinationExecutable(context.Trace);
             executable.Execute(
                 context.Subject.ToEntity<mwo_NameCombination>(),
                 context.Target.ToEntity<mwo_NameCombination>());
