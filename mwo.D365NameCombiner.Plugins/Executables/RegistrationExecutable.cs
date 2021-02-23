@@ -11,26 +11,32 @@ namespace mwo.D365NameCombiner.Plugins.Executables
     public class RegistrationExecutable
     {
         private ICRMContext Context;
+        private ITracingService Trace;
 
         public RegistrationExecutable(ICRMContext context)
         {
             Context = context;
+            Trace = context.Trace;
         }
 
         public void Execute(mwo_NameCombination subject)
         {
+            Trace.Trace(nameof(RegistrationExecutable));
             var updateEntity = new mwo_NameCombination(subject.Id);
 
+            Trace.Trace(nameof(subject.mwo_CreateStep));
             if (subject.mwo_CreateStep != null)
                 UpdateCreateStep(subject);
             else
                 updateEntity.mwo_CreateStep = CreateCreateStep(subject);
 
+            Trace.Trace(nameof(subject.mwo_UpdateStep));
             if (subject.mwo_UpdateStep != null)
                 UpdateUpdateStep(subject);
             else
                 updateEntity.mwo_UpdateStep = CreateUpdateStep(subject);
 
+            Trace.Trace($"Update needed: {updateEntity.Attributes.Count}");
             if (updateEntity.Attributes.Any())
                 Context.OrgService.Update(updateEntity);
         }
@@ -71,6 +77,11 @@ namespace mwo.D365NameCombiner.Plugins.Executables
 
         private mwo_PluginStepRegistration ComposeEntity(mwo_NameCombination subject, string message, string filters)
         {
+            Trace.Trace($"Composing Entity for {message}, {filters}, {subject.Id}");
+            Trace.Trace($"State {subject.StateCode}, Status {subject.StatusCode}");
+
+            var isUpdate = message == "Update";
+            var isActive = subject.StateCode == mwo_NameCombinationState.Active;
             var step = new mwo_PluginStepRegistration
             {
                 mwo_EventHandler = typeof(NameCombiner).FullName,
@@ -82,8 +93,15 @@ namespace mwo.D365NameCombiner.Plugins.Executables
                 mwo_PluginStepStage = mwo_PluginStage.PreOperation,
                 mwo_Asynchronous = false,
                 mwo_StepConfiguration = subject.Id.ToString(),
-                mwo_FilteringAttributes = filters
+                mwo_FilteringAttributes = filters, 
+                mwo_ImageType = isUpdate ? mwo_ImageType.PreImage : mwo_ImageType.None,
+                mwo_ImageName = CRMPluginContext.PreImageName,
+                mwo_ImageAttributes = filters,
+                StateCode = isActive ? mwo_PluginStepRegistrationState.Active : mwo_PluginStepRegistrationState.Inactive,
+                StatusCode = isActive ? mwo_PluginStepRegistration_StatusCode.Active : mwo_PluginStepRegistration_StatusCode.Inactive,
             };
+            Trace.Trace($"Composed based Entity");
+
             return step;
         }
 
@@ -105,10 +123,12 @@ namespace mwo.D365NameCombiner.Plugins.Executables
         private string GetFilters(string table, params string[] args)
         {
             var strings = new List<string>();
+            Trace.Trace($"Getting Metadata for {table}");
             var meta = GetMetadata(table);
 
             foreach (var arg in args)
             {
+                Trace.Trace($"Evaluating {arg}");
                 if (string.IsNullOrEmpty(arg))
                     continue;
                 else if (arg.Contains("=>"))
@@ -116,8 +136,11 @@ namespace mwo.D365NameCombiner.Plugins.Executables
                 else if (MetaDataHas(meta, arg))
                     strings.Add(arg);
             }
+            Trace.Trace($"Filters:");
+            strings.ForEach(_ => Trace.Trace(_));
 
-            return string.Join(",", strings.ToArray());
+            var filters = string.Join(",", strings.ToArray());
+            return filters;
         }
 
         private bool MetaDataHas(IEnumerable<AttributeMetadata> meta, string arg) => meta.Any(_ => _.LogicalName == arg);
@@ -126,7 +149,8 @@ namespace mwo.D365NameCombiner.Plugins.Executables
         {
             var meta = (RetrieveEntityResponse)Context.OrgService.Execute(new RetrieveEntityRequest()
             {
-                LogicalName = table
+                LogicalName = table,
+                EntityFilters = EntityFilters.Attributes
             });
 
             return meta.EntityMetadata.Attributes.ToList();

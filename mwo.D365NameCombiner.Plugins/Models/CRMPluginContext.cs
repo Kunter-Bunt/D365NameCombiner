@@ -44,6 +44,8 @@ namespace mwo.D365NameCombiner.Plugins.Models
             Subject = PreImage == null ? Target : PreImage.Merge(Target);
 
             OrgService = Factory.CreateOrganizationService(PluginContext.UserId);
+
+            Trace.Trace($"Built Context for: {PluginContext.PrimaryEntityName}:{PluginContext.PrimaryEntityId}");
         }
     }
 }
