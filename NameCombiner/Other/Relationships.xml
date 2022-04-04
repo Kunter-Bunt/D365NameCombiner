@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="lk_mwo_namecombination_createdby" />
+  <EntityRelationship Name="lk_mwo_namecombination_modifiedby" />
+  <EntityRelationship Name="mwo_NameCombination_CreateStep_mwo_Plugin" />
+  <EntityRelationship Name="mwo_NameCombination_UpdateStep_mwo_Plugin" />
+  <EntityRelationship Name="organization_mwo_namecombination" />
+</EntityRelationships>

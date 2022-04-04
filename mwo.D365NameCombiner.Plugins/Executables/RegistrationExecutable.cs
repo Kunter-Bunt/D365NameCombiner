@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Metadata;
-using mwo.D365NameCombiner.Plugins.EntryPoints;
 using mwo.D365NameCombiner.Plugins.Models;
 using System.Collections.Generic;
 using System.Linq;
+using mwo.D365NameCombiner.Plugins.Plugins;
 
 namespace mwo.D365NameCombiner.Plugins.Executables
 {
@@ -48,7 +48,7 @@ namespace mwo.D365NameCombiner.Plugins.Executables
 
         private EntityReference CreateUpdateStep(mwo_NameCombination subject)
         {
-            return CreateStep(subject, "Update", GetFilters(subject), subject.mwo_PluginExecutionOrderCreate);
+            return CreateStep(subject, "Update", GetFilters(subject), subject.mwo_PluginExecutionOrderUpdate);
         }
 
         private EntityReference CreateStep(mwo_NameCombination subject, string message, string filters, int? rank)
@@ -60,7 +60,7 @@ namespace mwo.D365NameCombiner.Plugins.Executables
 
         private void UpdateCreateStep(mwo_NameCombination subject)
         {
-            UpdateStep(subject, "Create", null, subject.mwo_PluginExecutionOrderUpdate, subject.mwo_CreateStep);
+            UpdateStep(subject, "Create", null, subject.mwo_PluginExecutionOrderCreate, subject.mwo_CreateStep);
         }
 
         private void UpdateUpdateStep(mwo_NameCombination subject)
