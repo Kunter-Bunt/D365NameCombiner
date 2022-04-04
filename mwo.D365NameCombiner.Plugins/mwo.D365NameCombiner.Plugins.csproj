@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.props" Condition="Exists('..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.props')" />
   <Import Project="..\packages\ILMerge.3.0.29\build\ILMerge.props" Condition="Exists('..\packages\ILMerge.3.0.29\build\ILMerge.props')" />
@@ -75,20 +75,24 @@
     <Compile Include="Decorators\OptionSetValueCollectionPrintable.cs" />
     <Compile Include="Decorators\OptionSetValuePrintable.cs" />
     <Compile Include="Entrypoints\NameCombiner.cs" />
-    <Compile Include="Entrypoints\PreOpNameCombination.cs" />
-    <Compile Include="Entrypoints\PreOpDeleteNameCombination.cs" />
     <Compile Include="Entrypoints\PostOpNameCombination.cs" />
-    <Compile Include="Executables\OwnNameCombinationExecutable.cs" />
-    <Compile Include="Executables\NameCombinationExecutable.cs" />
+    <Compile Include="Entrypoints\PreOpDeleteNameCombination.cs" />
+    <Compile Include="Entrypoints\PreOpNameCombination.cs" />
     <Compile Include="Executables\DeleteRegistrationExecutable.cs" />
+    <Compile Include="Executables\NameCombinationExecutable.cs" />
+    <Compile Include="Executables\OwnNameCombinationExecutable.cs" />
     <Compile Include="Executables\RegistrationExecutable.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\EntityHelper.cs" />
     <Compile Include="Models\Actions.cs" />
+    <Compile Include="Models\appaction_ClientType.cs" />
     <Compile Include="Models\CRMPluginContext.cs" />
     <Compile Include="Models\CrmServiceContext.cs" />
     <Compile Include="Models\ICRMContext.cs" />
+    <Compile Include="Models\msdyn_knowledgemanagementsetting_msdyn_actionlist.cs" />
+    <Compile Include="Models\msdyn_msdyn_requirementrelationship_msdyn_resourcegroupings.cs" />
+    <Compile Include="Models\msdyn_oc_daysofweek.cs" />
     <Compile Include="Models\mwo_EventHandlerType.cs" />
     <Compile Include="Models\mwo_ImageType.cs" />
     <Compile Include="Models\mwo_NameCombination.cs" />
