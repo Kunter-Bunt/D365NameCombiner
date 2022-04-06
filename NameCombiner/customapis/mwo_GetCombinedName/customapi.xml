@@ -1,0 +1,18 @@
+<customapi uniquename="mwo_GetCombinedName">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="GetCombinedName">
+    <label description="GetCombinedName" languagecode="1033" />
+  </description>
+  <displayname default="GetCombinedName">
+    <label description="GetCombinedName" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>GetCombinedName</name>
+  <plugintypeid>
+    <plugintypeid>8534be4a-c4b5-ec11-983f-00224883a180</plugintypeid>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

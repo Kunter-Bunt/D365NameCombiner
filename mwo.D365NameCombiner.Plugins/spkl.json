@@ -17,8 +17,8 @@
       "map": [
         {
           "map": "file",
-          "from": "PluginAssemblies\\**\\mwoSharepointAutomationPlugins.dll",
-          "to": "..\\mwo.SharepointAutomation.Plugins\\bin\\Debug\\mwo.D365NameCombiner.Plugins.dll"
+          "from": "PluginAssemblies\\mwoD365NameCombinerPlugins-DC2C4933-15B4-EC11-983F-00224883A180\\mwoD365NameCombinerPlugins.dll",
+          "to": "..\\mwo.D365NameCombiner.Plugins\\bin\\Debug\\mwo.D365NameCombiner.Plugins.dll"
         }
       ]
     }

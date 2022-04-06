@@ -1,0 +1,9 @@
+<customapirequestparameter uniquename="TargetLogicalName">
+  <displayname default="GetCombinedNameByConfig-In-TargetLogicalName">
+    <label description="GetCombinedNameByConfig-In-TargetLogicalName" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>GetCombinedNameByConfig-In-TargetLogicalName</name>
+  <type>10</type>
+</customapirequestparameter>

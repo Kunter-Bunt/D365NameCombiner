@@ -71,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrmPluginRegistrationAttribute.cs" />
+    <Compile Include="CustomAPI\GetCombinedName.cs" />
+    <Compile Include="CustomAPI\GetCombinedNameByConfig.cs" />
     <Compile Include="Decorators\EntityReferencePrintable.cs" />
     <Compile Include="Decorators\MoneyPrintable.cs" />
     <Compile Include="Decorators\OptionSetValueCollectionPrintable.cs" />
@@ -149,6 +151,7 @@
     <Content Include="bin\Debug\mwo.D365NameCombiner.Plugins.pdb" />
     <Content Include="ILMergeOrder.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

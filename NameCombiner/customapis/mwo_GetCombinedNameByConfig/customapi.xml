@@ -1,0 +1,18 @@
+<customapi uniquename="mwo_GetCombinedNameByConfig">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Retruns the combined string by given reference and name combination config.">
+    <label description="Retruns the combined string by given reference and name combination config." languagecode="1033" />
+  </description>
+  <displayname default="GetCombinedNameByConfig">
+    <label description="GetCombinedNameByConfig" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>GetCombinedNameByConfig</name>
+  <plugintypeid>
+    <plugintypeid>8734be4a-c4b5-ec11-983f-00224883a180</plugintypeid>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

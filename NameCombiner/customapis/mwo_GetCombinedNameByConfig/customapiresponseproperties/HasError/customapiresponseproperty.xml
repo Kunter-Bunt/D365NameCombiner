@@ -1,0 +1,8 @@
+<customapiresponseproperty uniquename="HasError">
+  <displayname default="GetCombinedNameByConfig-Out-HasError">
+    <label description="GetCombinedNameByConfig-Out-HasError" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <name>GetCombinedNameByConfig-Out-HasError</name>
+  <type>0</type>
+</customapiresponseproperty>

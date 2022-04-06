@@ -1,0 +1,9 @@
+<customapirequestparameter uniquename="P1">
+  <displayname default="GetCombinedName-In-P1">
+    <label description="GetCombinedName-In-P1" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <isoptional>1</isoptional>
+  <name>GetCombinedName-In-P1</name>
+  <type>10</type>
+</customapirequestparameter>

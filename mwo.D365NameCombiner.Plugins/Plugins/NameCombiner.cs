@@ -33,7 +33,7 @@ namespace mwo.D365NameCombiner.Plugins.Plugins
             var combinerService = new CombinerService(context.Subject, attributeService, expressionService, context);
 
             var executable = new NameCombinationExecutable(combinerService, context);
-            executable.Execute(context.Target, UnsecureConfiguration);
+            executable.Execute(UnsecureConfiguration, context.Target);
         }
     }
 }

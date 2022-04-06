@@ -5,6 +5,12 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <FileName>/PluginAssemblies/mwoD365NameCombinerPlugins-DC2C4933-15B4-EC11-983F-00224883A180/mwoD365NameCombinerPlugins.dll</FileName>
   <PluginTypes>
+    <PluginType AssemblyQualifiedName="mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedName, mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginTypeId="8534be4a-c4b5-ec11-983f-00224883a180" Name="mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedName">
+      <FriendlyName>mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedName</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedNameByConfig, mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginTypeId="8734be4a-c4b5-ec11-983f-00224883a180" Name="mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedNameByConfig">
+      <FriendlyName>mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedNameByConfig</FriendlyName>
+    </PluginType>
     <PluginType AssemblyQualifiedName="mwo.D365NameCombiner.Plugins.Plugins.NameCombiner, mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginTypeId="e02c4933-15b4-ec11-983f-00224883a180" Name="mwo.D365NameCombiner.Plugins.Plugins.NameCombiner">
       <FriendlyName>mwo.D365NameCombiner.Plugins.Plugins.NameCombiner</FriendlyName>
     </PluginType>
