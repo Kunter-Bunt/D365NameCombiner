@@ -5,7 +5,7 @@
   <IncludeCommandLine>true</IncludeCommandLine>
   <MaskPassword>true</MaskPassword>
   <SettingsVersion>1.2021.1.13</SettingsVersion>
-  <Version>1.2021.1.13</Version>
+  <Version>1.2022.2.4</Version>
   <ExtensionConfig>
     <ActionPrefixesWhitelist>mwo_</ActionPrefixesWhitelist>
     <ActionsWhitelist />
@@ -13,6 +13,8 @@
     <AddDebuggerNonUserCode>true</AddDebuggerNonUserCode>
     <AddNewFilesToProject>true</AddNewFilesToProject>
     <AddOptionSetMetadataAttribute>false</AddOptionSetMetadataAttribute>
+    <CamelCaseClassNames>false</CamelCaseClassNames>
+    <CamelCaseMemberNames>false</CamelCaseMemberNames>
     <CreateOneFilePerAction>true</CreateOneFilePerAction>
     <CreateOneFilePerEntity>true</CreateOneFilePerEntity>
     <CreateOneFilePerOptionSet>true</CreateOneFilePerOptionSet>
@@ -32,6 +34,7 @@ mwo_pluginstepregistration</EntitiesWhitelist>
     <GenerateEnumProperties>true</GenerateEnumProperties>
     <GenerateOnlyReferencedOptionSets>true</GenerateOnlyReferencedOptionSets>
     <GenerateOptionSetMetadataAttribute>false</GenerateOptionSetMetadataAttribute>
+    <GroupLocalOptionSetsByEntity>false</GroupLocalOptionSetsByEntity>
     <InvalidCSharpNamePrefix>_</InvalidCSharpNamePrefix>
     <MakeAllFieldsEditable>false</MakeAllFieldsEditable>
     <MakeReadonlyFieldsEditable>false</MakeReadonlyFieldsEditable>
@@ -41,12 +44,38 @@ mwo_pluginstepregistration</EntitiesWhitelist>
       xsi:nil="true" />
     <OptionSetPrefixesToSkip />
     <OptionSetsToSkip />
+    <OptionSetNames />
     <ProjectNameForEarlyBoundFiles />
     <PropertyEnumMappings />
     <ReadSerializedMetadata>false</ReadSerializedMetadata>
     <RemoveRuntimeVersionComment>true</RemoveRuntimeVersionComment>
     <ReplaceOptionSetPropertiesWithEnum>true</ReplaceOptionSetPropertiesWithEnum>
     <SerializeMetadata>false</SerializeMetadata>
+    <TokenCapitalizationOverrides>AccessTeam|
+ActiveState|
+BusinessAs|
+CardUci|
+DefaultOnCase|
+EmailAnd|
+FeatureSet|
+IsMsTeams|
+IsPaiEnabled|
+IsSopIntegration|
+MsDyUsd|
+O365Admin|
+OnHold|
+OwnerOnAssign|
+ParticipatesIn|
+PartiesOnEmail|
+PauseStates|
+SentOn|
+SlaId|
+SlaKpi|
+SyncOptIn|
+Timeout|
+UserPuid|
+VoiceMail|
+Weblink</TokenCapitalizationOverrides>
     <UnmappedProperties>duplicaterule:BaseEntityTypeCode,MatchingEntityTypeCode|
 invoicedetail:InvoiceStateCode|
 leadaddress:AddressTypeCode,ShippingMethodCode|
@@ -55,6 +84,7 @@ quote:StatusCode|
 quotedetail:QuoteStateCode|
 salesorderdetail:SalesOrderStateCode</UnmappedProperties>
     <UseDeprecatedOptionSetNaming>false</UseDeprecatedOptionSetNaming>
+    <UseLogicalNames>false</UseLogicalNames>
     <UseTfsToCheckoutFiles>false</UseTfsToCheckoutFiles>
     <WaitForAttachedDebugger>false</WaitForAttachedDebugger>
   </ExtensionConfig>
@@ -154,7 +184,7 @@ salesorderdetail:SalesOrderStateCode</UnmappedProperties>
     <Argument>
       <SettingType>Actions</SettingType>
       <Name>out</Name>
-      <Value>..\..\..\..\..\..\source\repos\Kunter-Bunt\D365NameCombiner\mwo.D365NameCombiner.Plugins\Models\</Value>
+      <Value>..\Models\</Value>
       <Valueless>false</Valueless>
     </Argument>
     <Argument>
@@ -172,7 +202,7 @@ salesorderdetail:SalesOrderStateCode</UnmappedProperties>
     <Argument>
       <SettingType>Entities</SettingType>
       <Name>out</Name>
-      <Value>..\..\..\..\..\..\source\repos\Kunter-Bunt\D365NameCombiner\mwo.D365NameCombiner.Plugins\Models\</Value>
+      <Value>..\Models\</Value>
       <Valueless>false</Valueless>
     </Argument>
     <Argument>
@@ -184,7 +214,7 @@ salesorderdetail:SalesOrderStateCode</UnmappedProperties>
     <Argument>
       <SettingType>OptionSets</SettingType>
       <Name>out</Name>
-      <Value>..\..\..\..\..\..\source\repos\Kunter-Bunt\D365NameCombiner\mwo.D365NameCombiner.Plugins\Models\</Value>
+      <Value>..\Models\</Value>
       <Valueless>false</Valueless>
     </Argument>
   </UserArguments>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginAssemblyId="dc2c4933-15b4-ec11-983f-00224883a180" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/mwoD365NameCombinerPlugins-DC2C4933-15B4-EC11-983F-00224883A180/mwoD365NameCombinerPlugins.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedName, mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginTypeId="8534be4a-c4b5-ec11-983f-00224883a180" Name="mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedName">
+      <FriendlyName>mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedName</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedNameByConfig, mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginTypeId="8734be4a-c4b5-ec11-983f-00224883a180" Name="mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedNameByConfig">
+      <FriendlyName>mwo.D365NameCombiner.Plugins.CustomAPI.GetCombinedNameByConfig</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="mwo.D365NameCombiner.Plugins.Plugins.NameCombiner, mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginTypeId="e02c4933-15b4-ec11-983f-00224883a180" Name="mwo.D365NameCombiner.Plugins.Plugins.NameCombiner">
+      <FriendlyName>mwo.D365NameCombiner.Plugins.Plugins.NameCombiner</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="mwo.D365NameCombiner.Plugins.Plugins.PostOpNameCombination, mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginTypeId="e42c4933-15b4-ec11-983f-00224883a180" Name="mwo.D365NameCombiner.Plugins.Plugins.PostOpNameCombination">
+      <FriendlyName>mwo.D365NameCombiner.Plugins.Plugins.PostOpNameCombination</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="mwo.D365NameCombiner.Plugins.Plugins.PreOpDeleteNameCombination, mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginTypeId="ec2c4933-15b4-ec11-983f-00224883a180" Name="mwo.D365NameCombiner.Plugins.Plugins.PreOpDeleteNameCombination">
+      <FriendlyName>mwo.D365NameCombiner.Plugins.Plugins.PreOpDeleteNameCombination</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="mwo.D365NameCombiner.Plugins.Plugins.PreOpNameCombination, mwo.D365NameCombiner.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c72c745f5a7f77cb" PluginTypeId="f12c4933-15b4-ec11-983f-00224883a180" Name="mwo.D365NameCombiner.Plugins.Plugins.PreOpNameCombination">
+      <FriendlyName>mwo.D365NameCombiner.Plugins.Plugins.PreOpNameCombination</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

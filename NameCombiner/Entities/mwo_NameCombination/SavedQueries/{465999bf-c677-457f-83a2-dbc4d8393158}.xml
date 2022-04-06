@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{465999bf-c677-457f-83a2-dbc4d8393158}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="mwo_name" select="1" icon="1" preview="1">
+        <row name="result" id="mwo_namecombinationid">
+          <cell name="mwo_name" width="300" />
+          <cell name="createdon" width="172" />
+          <cell name="createdby" width="175" />
+          <cell name="modifiedon" width="178" />
+          <cell name="modifiedby" width="172" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="mwo_namecombination">
+          <attribute name="mwo_namecombinationid" />
+          <attribute name="mwo_name" />
+          <attribute name="createdon" />
+          <order attribute="mwo_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+          <attribute name="createdby" />
+          <attribute name="modifiedon" />
+          <attribute name="modifiedby" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Name Combinations" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

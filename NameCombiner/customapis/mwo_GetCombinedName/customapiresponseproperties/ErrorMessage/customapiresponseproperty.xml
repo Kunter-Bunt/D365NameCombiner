@@ -1,0 +1,8 @@
+<customapiresponseproperty uniquename="ErrorMessage">
+  <displayname default="GetCombinedName-Out-ErrorMessage">
+    <label description="GetCombinedName-Out-ErrorMessage" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <name>GetCombinedName-Out-ErrorMessage</name>
+  <type>10</type>
+</customapiresponseproperty>

@@ -1,0 +1,8 @@
+<customapiresponseproperty uniquename="CombinedName">
+  <displayname default="GetCombinedNameByConfig-Out-CombinedName">
+    <label description="GetCombinedNameByConfig-Out-CombinedName" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <name>GetCombinedNameByConfig-Out-CombinedName</name>
+  <type>10</type>
+</customapiresponseproperty>

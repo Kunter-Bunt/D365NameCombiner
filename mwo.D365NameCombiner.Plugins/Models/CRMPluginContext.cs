@@ -33,7 +33,7 @@ namespace mwo.D365NameCombiner.Plugins.Models
             else
             {
                 Trace.Trace("Context did not have an Entity as Target, aborting.");
-                throw new InvalidPluginExecutionException(TargetName);
+                //throw new InvalidPluginExecutionException(TargetName); //not relevant for Custom APIs
             }
 
             if (PluginContext.PreEntityImages.ContainsKey(PreImageName)

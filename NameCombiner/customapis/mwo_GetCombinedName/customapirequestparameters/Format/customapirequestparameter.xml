@@ -1,0 +1,9 @@
+<customapirequestparameter uniquename="Format">
+  <displayname default="GetCombinedName-In-Format">
+    <label description="GetCombinedName-In-Format" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>GetCombinedName-In-Format</name>
+  <type>10</type>
+</customapirequestparameter>

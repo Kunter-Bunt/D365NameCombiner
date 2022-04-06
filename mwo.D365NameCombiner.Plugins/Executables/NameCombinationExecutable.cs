@@ -34,17 +34,17 @@ namespace mwo.D365NameCombiner.Plugins.Executables
             Context = context;
         }
 
-        public void Execute(Entity target, string configString)
+        public string Execute(string configString, Entity target = null)
         {
             var config = GetConfig(configString);
             if (config == null)
             {
                 Context.Trace.Trace($"Unable to find Name Combination \"{configString}\", skipping combination.");
-                return;
+                return null;
             }
 
             Context.Trace.Trace($"Combining for {config.mwo_Column}");
-            target[config.mwo_Column] = CombinerService.Combine(config.mwo_Format,
+            var combinedName = CombinerService.Combine(config.mwo_Format,
                                                                 config.mwo_format0,
                                                                 config.mwo_format1,
                                                                 config.mwo_format2,
@@ -55,6 +55,19 @@ namespace mwo.D365NameCombiner.Plugins.Executables
                                                                 config.mwo_format7,
                                                                 config.mwo_format8,
                                                                 config.mwo_format9);
+
+            if (target != null)
+            {
+                target[config.mwo_Column] = combinedName;
+            }
+            return combinedName;
+        }
+
+        public string Execute(string format, params string[] args)
+        {
+            var combinedName = CombinerService.Combine(format, args);
+
+            return combinedName;
         }
 
         private mwo_NameCombination GetConfig(string configString)

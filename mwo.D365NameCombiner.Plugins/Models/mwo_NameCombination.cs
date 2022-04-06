@@ -55,6 +55,8 @@ namespace mwo.D365NameCombiner.Plugins.Models
 			public const string mwo_Name = "mwo_name";
 			public const string mwo_NameCombinationId = "mwo_namecombinationid";
 			public const string Id = "mwo_namecombinationid";
+			public const string mwo_PluginExecutionOrderCreate = "mwo_pluginexecutionordercreate";
+			public const string mwo_PluginExecutionOrderUpdate = "mwo_pluginexecutionorderupdate";
 			public const string mwo_Table = "mwo_table";
 			public const string mwo_UpdateStep = "mwo_updatestep";
 			public const string OrganizationId = "organizationid";
@@ -94,6 +96,8 @@ namespace mwo.D365NameCombiner.Plugins.Models
 				base(EntityLogicalName, keyAttributes)
 		{
 		}
+		
+		public const string AlternateKeys = "mwo_column,mwo_table";
 		
 		public const string EntityLogicalName = "mwo_namecombination";
 		
@@ -262,7 +266,7 @@ namespace mwo.D365NameCombiner.Plugins.Models
 		}
 		
 		/// <summary>
-		/// The Plugin Step performing the Combination on Create
+		/// 
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_createstep")]
 		public Microsoft.Xrm.Sdk.EntityReference mwo_CreateStep
@@ -565,6 +569,46 @@ namespace mwo.D365NameCombiner.Plugins.Models
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_pluginexecutionordercreate")]
+		public System.Nullable<int> mwo_PluginExecutionOrderCreate
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("mwo_pluginexecutionordercreate");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("mwo_PluginExecutionOrderCreate");
+				this.SetAttributeValue("mwo_pluginexecutionordercreate", value);
+				this.OnPropertyChanged("mwo_PluginExecutionOrderCreate");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_pluginexecutionorderupdate")]
+		public System.Nullable<int> mwo_PluginExecutionOrderUpdate
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("mwo_pluginexecutionorderupdate");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("mwo_PluginExecutionOrderUpdate");
+				this.SetAttributeValue("mwo_pluginexecutionorderupdate", value);
+				this.OnPropertyChanged("mwo_PluginExecutionOrderUpdate");
+			}
+		}
+		
+		/// <summary>
 		/// The entity containing the target field of the combination
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_table")]
@@ -585,7 +629,7 @@ namespace mwo.D365NameCombiner.Plugins.Models
 		}
 		
 		/// <summary>
-		/// The Plugin Step performing the Combination on Update
+		/// 
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mwo_updatestep")]
 		public Microsoft.Xrm.Sdk.EntityReference mwo_UpdateStep

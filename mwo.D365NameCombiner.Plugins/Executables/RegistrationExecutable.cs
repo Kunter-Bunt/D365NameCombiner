@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Metadata;
-using mwo.D365NameCombiner.Plugins.EntryPoints;
 using mwo.D365NameCombiner.Plugins.Models;
 using System.Collections.Generic;
 using System.Linq;
+using mwo.D365NameCombiner.Plugins.Plugins;
 
 namespace mwo.D365NameCombiner.Plugins.Executables
 {
@@ -43,39 +43,39 @@ namespace mwo.D365NameCombiner.Plugins.Executables
 
         private EntityReference CreateCreateStep(mwo_NameCombination subject)
         {
-            return CreateStep(subject, "Create", null);
+            return CreateStep(subject, "Create", null, subject.mwo_PluginExecutionOrderCreate);
         }
 
         private EntityReference CreateUpdateStep(mwo_NameCombination subject)
         {
-            return CreateStep(subject, "Update", GetFilters(subject));
+            return CreateStep(subject, "Update", GetFilters(subject), subject.mwo_PluginExecutionOrderUpdate);
         }
 
-        private EntityReference CreateStep(mwo_NameCombination subject, string message, string filters)
+        private EntityReference CreateStep(mwo_NameCombination subject, string message, string filters, int? rank)
         {
-            var step = ComposeEntity(subject, message, filters);
+            var step = ComposeEntity(subject, message, filters, rank);
             step.Id = Context.OrgService.Create(step);
             return step.ToEntityReference();
         }
 
         private void UpdateCreateStep(mwo_NameCombination subject)
         {
-            UpdateStep(subject, "Create", null, subject.mwo_CreateStep);
+            UpdateStep(subject, "Create", null, subject.mwo_PluginExecutionOrderCreate, subject.mwo_CreateStep);
         }
 
         private void UpdateUpdateStep(mwo_NameCombination subject)
         {
-            UpdateStep(subject, "Update", GetFilters(subject), subject.mwo_UpdateStep);
+            UpdateStep(subject, "Update", GetFilters(subject), subject.mwo_PluginExecutionOrderUpdate, subject.mwo_UpdateStep);
         }
 
-        private void UpdateStep(mwo_NameCombination subject, string message, string filters, EntityReference existingStep)
+        private void UpdateStep(mwo_NameCombination subject, string message, string filters, int? rank, EntityReference existingStep)
         {
-            var step = ComposeEntity(subject, message, filters);
+            var step = ComposeEntity(subject, message, filters, rank);
             step.Id = existingStep.Id;
             Context.OrgService.Update(step);
         }
 
-        private mwo_PluginStepRegistration ComposeEntity(mwo_NameCombination subject, string message, string filters)
+        private mwo_PluginStepRegistration ComposeEntity(mwo_NameCombination subject, string message, string filters, int? rank)
         {
             Trace.Trace($"Composing Entity for {message}, {filters}, {subject.Id}");
             Trace.Trace($"State {subject.StateCode}, Status {subject.StatusCode}");
@@ -97,6 +97,7 @@ namespace mwo.D365NameCombiner.Plugins.Executables
                 mwo_ImageType = isUpdate ? mwo_ImageType.PreImage : mwo_ImageType.None,
                 mwo_ImageName = CRMPluginContext.PreImageName,
                 mwo_ImageAttributes = filters,
+                mwo_Rank = rank,
                 StateCode = isActive ? mwo_PluginStepRegistrationState.Active : mwo_PluginStepRegistrationState.Inactive,
                 StatusCode = isActive ? mwo_PluginStepRegistration_StatusCode.Active : mwo_PluginStepRegistration_StatusCode.Inactive,
             };

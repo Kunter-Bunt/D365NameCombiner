@@ -1,0 +1,9 @@
+<customapirequestparameter uniquename="TargetId">
+  <displayname default="GetCombinedName-In-TargetId">
+    <label description="GetCombinedName-In-TargetId" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>GetCombinedName-In-TargetId</name>
+  <type>10</type>
+</customapirequestparameter>
