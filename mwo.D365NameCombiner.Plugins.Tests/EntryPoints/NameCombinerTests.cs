@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using mwo.D365NameCombiner.Plugins.Models;
+using mwo.D365NameCombiner.Plugins.Plugins;
 using mwo.D365NameCombiner.Plugins.Tests;
 
 namespace mwo.D365NameCombiner.Plugins.EntryPoints.Tests

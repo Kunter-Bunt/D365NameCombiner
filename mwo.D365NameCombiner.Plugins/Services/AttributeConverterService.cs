@@ -32,6 +32,8 @@ namespace mwo.D365NameCombiner.Plugins.Services
                     return dc;
                 case Guid g:
                     return g;
+                case DateTime dt:
+                    return dt;
                 case EntityReference e:
                     return new EntityReferencePrintable(e, Context, this);
                 case OptionSetValue o:

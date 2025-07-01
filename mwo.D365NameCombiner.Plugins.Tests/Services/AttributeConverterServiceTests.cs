@@ -19,6 +19,7 @@ namespace mwo.D365NameCombiner.Plugins.Services.Tests
         [DataRow(EnumsAttribute, typeof(OptionSetValueCollectionPrintable))]
         [DataRow(LookupAttribute, typeof(EntityReferencePrintable))]
         [DataRow(MoneyAttribute, typeof(MoneyPrintable))]
+        [DataRow(DateTimeAttribute, typeof(DateTime))]
         public void Convert_Test(string attr, Type outT)
         {
             //Arrange

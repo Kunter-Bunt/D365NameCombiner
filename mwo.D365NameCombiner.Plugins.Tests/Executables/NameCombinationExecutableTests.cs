@@ -24,7 +24,7 @@ namespace mwo.D365NameCombiner.Plugins.Executables.Tests
         public void Execute_HappyTest()
         {
             //Act
-            Executable.Execute(Target, Config.Id.ToString());
+            Executable.Execute(Config.Id.ToString(), Target);
 
             //Assert
             Assert.AreEqual(Target[CombinedAttribute], StringValue);
@@ -35,7 +35,7 @@ namespace mwo.D365NameCombiner.Plugins.Executables.Tests
         public void Execute_NotExistingTest()
         {
             //Act
-            Executable.Execute(Target, Guid.NewGuid().ToString());
+            Executable.Execute(Guid.NewGuid().ToString(), Target);
 
             //Assert
             Assert.IsFalse(Target.Contains(CombinedAttribute));
@@ -46,7 +46,7 @@ namespace mwo.D365NameCombiner.Plugins.Executables.Tests
         public void Execute_NoConfigTest()
         {
             //Act
-            Executable.Execute(Target, null);
+            Executable.Execute(null, Target);
 
             //Assert
             Assert.IsFalse(Target.Contains(CombinedAttribute));
@@ -56,7 +56,7 @@ namespace mwo.D365NameCombiner.Plugins.Executables.Tests
         public void Execute_InvalidConfigTest()
         {
             //Act
-            Executable.Execute(Target, "Nope");
+            Executable.Execute("Nope", Target);
 
             //Assert
             Assert.IsFalse(Target.Contains(CombinedAttribute));

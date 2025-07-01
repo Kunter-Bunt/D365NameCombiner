@@ -23,6 +23,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         [DataRow(DecimalAttribute, "1.24")]
         [DataRow(DoubleAttribute, "2.48")]
         [DataRow(MoneyAttribute, "3.72")]
+        [DataRow(DateTimeAttribute, "2025-07-01 12:23:30")]
         [DataRow(NullAttribute, "")]
         [DataRow(SimpleExpression, SimpleExpressionExpected)]
         public void Combine_SimpleFormatTest(string attr, object expected)
@@ -66,7 +67,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         }
 
         [TestMethod]
-        public void Combine_MoneyFormaatTest()
+        public void Combine_MoneyFormatTest()
         {
             //Act
             var result = Service.Combine("{0:C3}", MoneyAttribute);
@@ -96,6 +97,17 @@ namespace mwo.D365NameCombiner.Plugins.Tests
 
             //Assert
             Assert.AreEqual(expected, result);
+        }
+
+
+        [TestMethod]
+        public void Combine_DateTimeFormatTest()
+        {
+            //Act
+            var result = Service.Combine("{0:yyyy-MM-dd}", DateTimeAttribute);
+
+            //Assert
+            Assert.AreEqual(DateTimeValue.ToString("yyyy-MM-dd"), result);
         }
     }
 }

@@ -59,6 +59,9 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         protected const string GuidAttribute = nameof(GuidAttribute);
         protected Guid GuidValue = Guid.NewGuid();
 
+        protected const string DateTimeAttribute = nameof(DateTimeAttribute);
+        protected DateTime DateTimeValue = new DateTime(2025, 07, 01, 12, 23, 30);
+
         protected const string NullAttribute = nameof(NullAttribute);
 
         protected const string CombinedAttribute = nameof(CombinedAttribute);
@@ -142,6 +145,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
                 [LookupAttribute] = LookupValue,
                 [MoneyAttribute] = MoneyValue,
                 [GuidAttribute] = GuidValue,
+                [DateTimeAttribute] = DateTimeValue,
                 [NullAttribute] = null
             };
         }
