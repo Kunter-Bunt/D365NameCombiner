@@ -29,8 +29,7 @@ namespace mwo.D365NameCombiner.Plugins.Plugins
             var context = new CRMPluginContext(serviceProvider);
 
             var attributeService = new AttributeConverterService(context);
-            var expressionService = new ExpressionConverterService(context);
-            var combinerService = new CombinerService(context.Subject, attributeService, expressionService, context);
+            var combinerService = new CombinerService(context.Subject, attributeService, context);
 
             var executable = new NameCombinationExecutable(combinerService, context);
             executable.Execute(UnsecureConfiguration, context.Target);

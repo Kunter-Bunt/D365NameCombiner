@@ -11,7 +11,7 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         [TestInitialize]
         public void Initialize()
         {
-            Service = new CombinerService(Target, new AttributeConverterService(Context), new ExpressionConverterService(Context), Context);
+            Service = new CombinerService(Target, new AttributeConverterService(Context), Context);
         }
 
         [DataTestMethod]
@@ -25,7 +25,6 @@ namespace mwo.D365NameCombiner.Plugins.Tests
         [DataRow(MoneyAttribute, "3.72")]
         [DataRow(DateTimeAttribute, "2025-07-01 12:23:30")]
         [DataRow(NullAttribute, "")]
-        [DataRow(SimpleExpression, SimpleExpressionExpected)]
         public void Combine_SimpleFormatTest(string attr, object expected)
         {
             //Act

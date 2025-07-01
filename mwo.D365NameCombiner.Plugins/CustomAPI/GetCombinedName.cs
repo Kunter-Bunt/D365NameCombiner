@@ -55,8 +55,7 @@ namespace mwo.D365NameCombiner.Plugins.CustomAPI
                 var target = context.OrgService.Retrieve(targetLogicalName as string, targetId, new ColumnSet(true));
 
                 var attributeService = new AttributeConverterService(context);
-                var expressionService = new ExpressionConverterService(context);
-                var combinerService = new CombinerService(target, attributeService, expressionService, context);
+                var combinerService = new CombinerService(target, attributeService, context);
 
                 var executable = new NameCombinationExecutable(combinerService, context);
                 var combinedName = executable.Execute(format as string,

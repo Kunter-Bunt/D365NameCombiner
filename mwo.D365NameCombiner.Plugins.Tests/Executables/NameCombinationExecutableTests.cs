@@ -14,8 +14,7 @@ namespace mwo.D365NameCombiner.Plugins.Executables.Tests
         public void Initialize()
         {
             var attributeService = new AttributeConverterService(Context);
-            var expressionService = new ExpressionConverterService(Context);
-            var combinerService = new CombinerService(Target, attributeService, expressionService, Context);
+            var combinerService = new CombinerService(Target, attributeService, Context);
 
             Executable = new NameCombinationExecutable(combinerService, Context);
         }

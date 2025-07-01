@@ -8,14 +8,12 @@ namespace mwo.D365NameCombiner.Plugins.Services
     {
         private Entity Entity { get; set; }
         private AttributeConverterService AttributeService { get; set; }
-        private ExpressionConverterService ExpressionService { get; set; }
         public ICRMContext Context { get; }
 
-        public CombinerService(Entity entity, AttributeConverterService attributeService, ExpressionConverterService expressionService, ICRMContext context)
+        public CombinerService(Entity entity, AttributeConverterService attributeService, ICRMContext context)
         {
             Entity = entity;
             AttributeService = attributeService;
-            ExpressionService = expressionService;
             Context = context;
         }
 
@@ -31,8 +29,6 @@ namespace mwo.D365NameCombiner.Plugins.Services
                 Context.Trace.Trace($"Processing arg: {arg}");
                 if (string.IsNullOrEmpty(arg))
                     transformed = null;
-                else if (arg.Contains("=>"))
-                    transformed = ExpressionService.Convert(arg);
                 else
                     transformed = AttributeService.Convert(Entity, arg);
 
@@ -40,7 +36,6 @@ namespace mwo.D365NameCombiner.Plugins.Services
                 transformedArguments.Add(transformed);
 
                 Context.Trace.Trace($"-----------------");
-
             }
 
             Context.Trace.Trace($"Done transforming, formatting \"{format}\" with {transformedArguments.Count} args.");
