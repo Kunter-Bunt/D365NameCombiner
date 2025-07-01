@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mwo.D365NameCombiner.Plugin
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "NameCombiner", "NameCombiner\", "{5A1C4932-3E8D-4DDF-A82E-BD21B065C9F8}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52022"
 		Debug.AspNetCompiler.PhysicalPath = "NameCombiner\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52022\"
